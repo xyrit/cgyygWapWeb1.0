@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>充值记录</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+</head>
+<body>
+<div class="container-fluid"> 
+<div class="container-fluid-pastannounce">
+                
+		<!--充值记录-说明-->
+        
+                <div class="rec-record row">
+                   <p class="padding-l-r-1 lg_22px">充值可获得橙果币（1元=1橙果币），橙果币可用于1元购，充值的款项将无法退回。</p>
+                </div>
+                
+                
+               
+                <!--充值记录-内容-->
+                <div class="row">
+                    <table class="table table-condensed rec_record_List ">
+                       <thead>
+                          <tr>
+                             <th>交易号</th>
+                             <th class="rec_record_money">金额/状态</th>
+                             <th>时间</th>
+                          </tr>
+                       </thead>
+                       <tbody id="userpayList">
+                          
+                          
+                       </tbody>
+                       
+                    </table>
+                    <a class="jiazaiNum" style="width:100%; height:30px; display:block;text-align: center;" href="javascript:;">加载更多</a>
+                </div>
+        
+                <!--底部立即充值-->
+                <div class="footer-top-rec clearfix">
+                   <button type="button" class="btn btn-lg btn-block" onClick="location.href='32-Recharge.html'">立即充值</button> 
+                </div>
+        <!--底部菜单-->
+      	<div id="footer"></div>
+     <!--底部菜单-->
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/user/user_Pay.js"></script><!--充值记录-->
+<script src="js/public/date-transite.js"></script>
+</body>
+</html>

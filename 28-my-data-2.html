@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的资料_修改昵称</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+</head>
+<body>
+<div class="container-fluid"> 
+<div class="container-fluid-pastannounce">
+        
+        <!--内容-->
+        <div class="d_name position-re row">
+        	<form  action="#" method="post">
+	              <input  type="text" id="username_xg" maxlength="11" class="form-control" value=""/>
+	  		<br/>   
+           <button id="xiugai_inf" type="button" class="top_nav btn btn-lg btn-block land_la">保存</button>	
+           </from>
+        </div>
+        
+
+       <!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script>
+	var nickname = window.localStorage.nickname;//取出用户名
+	var user 	 = window.localStorage.user_token;//用户唯一标识
+	$('#username_xg').val(nickname);//设置新的用户名
+
+	//修改用户名
+	$('#xiugai_inf').click(function(){
+		var username = $('#username_xg').val();
+		$.ajax({
+			type:"POST",
+			url:urlPost+"/ucenter/userInfoUp",
+			data:{
+				user_token:user,
+				nickname:username
+			},
+			dataType:'json',
+			success:function(data){
+				if(data['code']=='200'){
+					window.localStorage.nickname = user;//覆盖用户名
+					tanchuan_1('修改成功！','success','确定','28-my-data.html');
+				}else{
+					tanchuan_0(data['info'],'error','确定');
+				}
+				
+			}
+		});
+	});
+</script>
+</body>
+</html>

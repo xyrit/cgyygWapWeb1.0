@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>橙果云购-红包活动</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/><!--为了防止苹果手机自动把数字变成号码导致样式失效-->
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<!--<link rel="stylesheet" href="css/flexslider.css"/>--><!--轮播-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"/><!--alert弹窗-->
+<link rel="stylesheet" href="css/hongbao.css"/>
+</head>
+<body> 
+<div class="container-fluid">
+               
+       <div class="margin-b-35 content_body row">
+            <div>
+               <img src="images/hong_bg.jpg" width="100%"/>
+            </div>
+            <div class="position-re hong_content">
+                <dl class="rule_box">
+                  <dt class="rule_title">活动规则：</dt>
+                  <dd class="rule_list">1、新注册用户即可领取1元红包，累计充值达到条件，即可领取对应的红包。</dd>
+                  <dd class="rule_list">2、红包领取后自动存余额中，可参与云购时使用。</dd>
+                  <dd class="rule_list">举个栗子：小明同学充值了100元，可领取2元、3元、5元3个红包。</dd>
+
+                </dl>
+                <div class="row" style="margin-top:40px">
+                   <div class="col-md-6 col-sm-6 col-xs-8">
+                      <div class="already_chong display-ib">
+                         <div class="already_num">￥<span id="total_money"></span></div>
+                         <div class="already_zi">已累计充值<span class="border-bg"></span></div>
+                      </div>
+                   </div>
+                   <div class="col-md-6 col-sm-6 col-xs-3">
+                      <button type="button" class="btn pull-right chong_btn margin_p" onclick="window.location.href='32-Recharge.html'">立即充值</button>
+                   </div>
+                </div>
+                <div class="data_list">
+                   <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th><p style="margin:0 auto;">领取条件</p></th>
+                          <th><p style="margin:0 auto;">红包</p></th>
+                          <th><p style="margin:0 auto;">操作</p></th>
+                        </tr>
+                      </thead>
+                      <tbody id="hong_list">
+                        <tr>
+                          <td colspan="3">
+                            <div class="loading"></div>
+                          </td>
+                        </tr>
+
+                       
+                      </tbody>
+                    </table>
+                </div>
+    
+            </div>
+        </div> 
+       
+
+      <!--底部文字-->
+        <div id="footer2"></div>
+      <!--底部文字-->
+
+       
+      <!--底部菜单-->
+      	<div id="footer"></div>
+     <!--底部菜单-->
+</div>
+<!--返回顶部-->
+<a href="javascript:;" class="return_top position-ab">
+    <span class=" icon-arrow-up"></span>
+</a>
+<!-- Modal 什么是橙果云购-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 10px;top: 5px;font-size: 30px;opacity: 1;color:#fff">
+                <span class="icon-remove-sign"></span>
+             <!--<span aria-hidden="true">&times;</span>-->
+             </button>
+            <img src="images/guide.jpg" style="width:100%;"/>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<!--<script src="js/public/weixin_inc.js"></script>-->
+<script src="js/sweetalert-dev.js"></script>
+<script>
+    var c="<script type='text/javascript' src='js/data_list/hongbao.js?random="+Math.random()+"'><\/script>";
+
+    document.write(c);
+</script>
+
+<script>
+$(function(){
+
+$('#footer2').load('footer_2.html');//加载底部文字
+	//bootstrap 下拉菜单打开和关闭时相应的动作
+	$('.dropdown').on('show.bs.dropdown', function () {
+	  $('.dropdown>a').addClass("active");
+	});
+	$('.dropdown').on('hide.bs.dropdown', function () {
+	  $('.dropdown>a').removeClass("active");
+	});
+	$('#footer').load('footer.html');//加载底部区域
+	 /*出现回到顶部按钮*/
+	  $(".return_top").hide();
+	  $(window).scroll(function () {
+		  if ($(this).scrollTop() > 900) {
+			  $(".return_top").stop().show().animate({ bottom: '100px' }, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  
+		  }
+		  else {
+			  
+			  $(".return_top").stop().animate({ bottom: '-200px'}, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  }
+		  
+	  });
+	  //返回顶部
+	  $('.return_top').click(function () {
+		  $('body,html').animate({ scrollTop: 0 }, 500);
+		  $(".return_top").animate({ bottom: '-200px', opacity: '1' }, 500);
+		  return false;
+	  });
+	  //导航展开后小图标的变化
+	  $('.dropdown').on('show.bs.dropdown', function () {
+		 $("#menu_icon").css({"transform":"rotate(180deg)","top":"0px"});
+	  })
+	  $('.dropdown').on('hide.bs.dropdown', function () {
+		 $("#menu_icon").css({"transform":"rotate(360deg)","top":"2px"});
+	  })
+	  /* center modal 模态框居中*/
+	  centerModals();
+	  $(window).on('resize', centerModals);
+})	
+</script>
+</body>
+</html>

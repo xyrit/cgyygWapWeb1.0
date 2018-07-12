@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>橙果云购-0元IPad免费拿-进行中</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/><!--为了防止苹果手机自动把数字变成号码导致样式失效-->
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/flexslider.css"/><!--轮播-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/hongbao.css"/>
+</head>
+<body>
+<div class="container-fluid padding-b-10">
+  
+  <!--商品详情进行中-->
+        <!--滑动组件-->
+		<section class="slider">
+          <div class="flexslider">
+            <ul class="slides" id="slides">
+              <div class="loading"></div>
+              <!--<li><img src="images/kitchen_adventurer_cheesecake_brownie.jpg" /></li>-->
+                  
+            </ul>
+          </div>
+        </section>
+        <!--倒计时-->
+        <div class="time_down">
+           开奖倒计时：<span>剩<span class="day_show_1"></span>天<span class="hour_show_1"></span>小时<span class="minute_show_1"></span>分<span class="second_show_1"></span>秒</span>
+        </div>
+        <!--标题-->
+        <div class="content">
+               
+           <div class="content_nav">
+               <div class="content_nav_title">
+                    <small class="nowIngText position-re fz_14px">进行中</small>
+                    <span class="padding-l-1 title_number fz_15px" id="title"></span>
+               </div>
+           </div>
+           <!--参与人数-->
+           <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-6">
+                  <span class="text-red" id="price_true">￥0</span><span class="text-m_line" style="padding-left:10px" id="price_old"></span>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-6">
+                  <span class="pull-right">已参与<span id="attend_count"></span>人次</span>
+              </div>
+           </div>
+           <!--参与人数-->
+           <!--分享-->
+           <div class="shareBox">
+              <p class="text-center" style="margin:10px 0">您已拥有<span class="text-red" id="ma_count"></span>个幸运码，成功打败<span class="text-red" id="ma_percnt"></span>竞争者</p>
+              <div class="share_group">
+                  <p class="text-center share_text">获得更多幸运码，可以打败更多竞争者哦！</p>
+                  <ul class="clearfix">
+                    <li class="col-md-4 col-sm-4 col-xs-4 padding-r-0">
+                       <button type="button" class="btn-block btn share_btn_default share_btn_1" id="share_get"><img src="images/share_btn_2.png"/>领取幸运码</button>
+                       <p class="fz_12px text-center share_text">每日可领1个码</p>
+                    </li>
+                    <li class="col-md-4 col-sm-4 col-xs-4" style="padding:0 8px">
+                       <button type="button" class="btn-block btn share_btn_default share_btn_1" id="share_weixin"><img src="images/share_btn_1.png"/>分享到微信</button>
+                       <p class="fz_12px text-center share_text">每日可领3个码</p>
+                    </li>
+                    <li class="col-md-4 col-sm-4 col-xs-4 padding-l-0">
+                       <button type="button" class="btn-block btn share_btn_default share_btn_1" id="share_attend"><img src="images/share_btn_3.png"/>参与云购</button>
+                       <p class="fz_12px text-center share_text">每日可领1个码</p>
+                    </li>
+                  </ul>
+              </div>
+          </div>
+               
+              
+  </div>
+	    <!--商品列表-->
+        <div class="product_list row">
+           <div class="list_img position-re">
+               <a href="javascript:;" class="link" id="myCode_link">
+                   查看我的幸运码
+                   <span class="icon-angle-right position-ab icon-right"></span>
+               </a>
+           </div>
+           <div class="list_past position-re">
+               <a href="javascript:;" class="link" id="details_link">
+                   图文详情<span class="text-gray">（建议wifi下查看）</span> 
+                   <span class="icon-angle-right position-ab icon-right"></span>
+               </a>
+           </div>
+           <div class="list_past position-re">
+               <a href="javascript:;" class="link" id="BeforePublishList">
+                   往期揭晓
+                   <span class="icon-angle-right position-ab icon-right"></span>
+               </a>
+           </div>
+           <div class="col-md-12 col-sm-12 col-xs-12">
+               <dl class="naShang_dl">
+                   <dt>活动说明：</dt>
+                   <dd>1、本次活动截至2016年4月29日15:00</dd>
+                   <dd>2、每个用户每天仅限领取1个幸运码。</dd>
+                   <dd>3、通过微信分享活动后，可以额外再领取3个幸运码，每日仅限领取1次。</dd>
+                   <dd>4、每天云购后，可以额外再领取1个幸运码，每日仅限领取1次。</dd>
+                   <dd>5、活动期间，每周五15:00可点击“查看抽奖结果”，查询是否中奖。</dd>
+                   <dd>6、开奖后，会有客服人员联系中奖用户，请在活动期间保持手机畅通。</dd>
+                   <dd>7、在法律允许范围内，橙果云购拥有本次活动解释权，如有任何疑问，请联系客服QQ：3048007917进行咨询。</dd>
+               </dl>
+           </div>
+        </div>
+        <!--底部加入立即前往-->
+         
+       <!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+       
+</div>
+<!--模态框-----中奖者的参与码-->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+<div class="modal-dialog modal-dialog-2" role="document">
+  <div class="modal-content modal-content-2">
+    <div class="modal-header modal-header-2">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title" id="pri_myAttend_count2">我总共参与了</h4>
+    </div>
+    <div class="modal-body" id="pri_luckyCode">
+
+    </div>
+
+  </div>
+</div>
+</div>
+<!--模态框-----我的参与码-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ><!--data-backdrop="static"-->
+<div class="modal-dialog modal-dialog-2" role="document">
+  <div class="modal-content modal-content-2">
+    <div class="modal-header modal-header-2">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title" id="myAttend_count2">我总共参与了</h4>
+    </div>
+    <div class="modal-body" id="luckyCode">
+       
+    </div>
+    
+  </div>
+</div>
+</div>
+<!--分享到微信引导图-->
+<div class="share_bg">
+    <div class="share_arrow"><img src="images/share_arrow.png"/> </div>
+    <div class="share_word"><img src="images/share_word.png"/> </div>
+    <div class="share_tip">点击关闭提示框</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script defer src="js/jquery.flexslider-min.js"></script><!--轮播-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/public/date-transite.js"></script>
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/data_list/special/special_ing.js"></script>
+<!--<script src="js/goods/addShoping.js"></script>--><!--加入购物车-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/data_list/weixinSdk.js"></script>
+<!--<script src="js/data_list/special/special_common.js"></script>-->
+<script>
+
+$(function(){
+	 $('.flexslider').flexslider({
+		animation: "slide",
+		slideshow: true,
+		directionNav: false,
+		animationLoop: true,
+		slideshowSpeed: 3000, 
+	  });
+	 //$('#footer').load('footer.html');//加载底部区域
+	 /*出现回到顶部按钮*/
+	  $(".return_top").hide();
+	  $(window).scroll(function () {
+		  if ($(this).scrollTop() > 900) {
+			  $(".return_top").stop().show().animate({ bottom: '100px' }, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  
+		  }
+		  else {
+			  
+			  $(".return_top").stop().animate({ bottom: '-200px'}, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  }
+		  
+	  });
+	  //返回顶部
+	  $('.return_top').click(function () {
+		  $('body,html').animate({ scrollTop: 0 }, 500);
+		  $(".return_top").animate({ bottom: '-200px', opacity: '1' }, 500);
+		  return false;
+	  });
+	  
+     /*登陆弹窗*/
+	 var LoginBox = $('#Logininput');
+	 $('#Loginbu').click(function(){
+		 LoginBox.show();
+	 });
+	 $('#hideLogin').click(function(){
+		 LoginBox.hide();
+	 });
+	 //查看参与记录展开后小图标的变化
+	 $('#collapseListGroup1').on('show.bs.collapse', function () {
+		$(".up_down_btn").css("color","#ff4800");
+		$(".up_down_btn .icon-right").css({"transform":"rotate(180deg)","color":"#ff4800"});
+	 });  
+	 $('#collapseListGroup1').on('hide.bs.collapse', function () {
+		$(".up_down_btn").css("color","#333");
+		$(".up_down_btn .icon-right").css({"transform":"rotate(360deg)","color":"#333"});
+	 });
+	 /* center modal 模态框居中*/
+	  centerModals();
+	  $(window).on('resize', centerModals);
+    //分享到微信引导图
+    $("#share_weixin").click(function(){
+        $(".share_bg").show();
+    });
+    $(".share_bg").click(function(){
+        $(this).hide();
+    });
+
+})
+</script>
+</body>
+</html>

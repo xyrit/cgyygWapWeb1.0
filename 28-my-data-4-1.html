@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的资料_地址_编辑地址</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+</head>
+<body>
+<div class="container-fluid"> 
+<div class="container-fluid-pastannounce">             
+<br/>
+<div id="element_id" style="display:block">
+
+           <p class="textdizhi">
+            <input class="dizhi_x form-control" placeholder="收货人姓名" type="text" name="dizhi" id="dizhi_name" value="" />
+           </p>
+           <p class="textdizhi">
+           <input class="dizhi_x form-control" placeholder="收货人手机" maxlength="11" type="text" name="dizhi" id="dizhi_mobile" value="" />
+           </p>
+
+            <select name='province' class="province"></select>
+            <select name='city' class="city" id="city"></select>
+            <select name='area' class="area" id="area"></select>
+            <p class="textdizhi">
+
+            <input style="height: 60px;" class="dizhi_x form-control" placeholder="请输入详细地址" type="text" name="dizhi" id="xdizhi_test" value="" />
+           </p>
+
+           <p class="textdizhi" style="border-top: 1px dashed #ccc;padding-top:6px;">
+              <input class="dizhi_x form-control" disabled="disabled"  type="text" name="dizhi" id="dizhi_mobile2" value="" />
+           </p>
+
+          <p class="textdizhi" style="position: relative;">
+            <input style="width:150px;" type="text" id="dizhi_verify" name="verify" class="form-control" placeholder="手机验证码">
+                  <button style="background: #ff4800;" href="#" class="click_style" id="dizhiverify_site">发送验证码</button>
+          </p>
+
+
+        <button id="dizhicheki_xiugai" style="background:#ff4800;color: #fff;" type="button" class="btn btn-lg btn-block land_la">保存</button>  
+
+      </div>      
+        </div>
+        <!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/jquery.cxselect.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息-->
+<script src="js/user/Address.js"></script><!--修改地址-->
+</body>
+</html>

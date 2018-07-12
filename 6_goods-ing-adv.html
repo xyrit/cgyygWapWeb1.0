@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商品详情-已揭晓</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/><!--为了防止苹果手机自动把数字变成号码导致样式失效-->
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/flexslider.css"/><!--轮播-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+
+</head>
+<body>
+<div class="container-fluid goods-ing">
+  
+  <!--商品详情进行中-->
+        <!--滑动组件-->
+		<section class="slider">
+          <div class="flexslider">
+            <ul class="slides" id="slides">
+               <div class="loading"></div>
+              <!--<li><img src="images/kitchen_adventurer_cheesecake_brownie.jpg" /></li>-->
+                  
+            </ul>
+          </div>
+        </section>
+        <!--标题-->
+        <div class="content">
+               <div class="content_nav">
+                     <div class="content_nav_title">
+                          <small class="nowIngText position-re fz_14px">已揭晓</small>
+                          <span class="padding-l-1 title_number fz_15px" id="title"></span>
+                     </div>
+               </div>
+               <!--揭晓名单获奖者-->
+               <div class="adv-winner">
+                   <div class="winner-record position-re display-b">
+                        <div class="winner-icon position-ab display-ib">
+                        </div>
+                        <div class="winner-list row flex_content">
+                               <div class="col-md-2 col-sm-3 col-xs-4 winner_publish_1 text-center padding-r-10" id="userImg">
+                                   <!--<img class="img_publish" src="images/tx.png">-->
+                               </div>
+                               <div class="col-md-10 col-sm-9 col-xs-8 winner_publish_1 margin-t-5 padding-l-0 fz_12px padding-r-0">
+                                   <!--<h3 class="fz_15px lg_22px"><a href="#">Apple MacBook Pro 15.4英寸笔记本</a></h3>-->
+                                   <p class="lg_20px text-gray" id="prizer"></p>
+                                   <p class="lg_20px text-gray" id="userId"></p>
+                                   <p class="lg_22px">
+                                   <span class="text-gray">本期参与：</span><span class="text-red" id="attendCount"></span><span class="text-gray">人次</span><a href="javascript:;" class="text-blue padding-l-r-5" id="alertList">查看TA的号码</a>
+                                   </p>
+                                   <p class="lg_22px text-gray" id="publishTime">揭晓时间：</p>
+                              </div>
+                       </div>
+                        
+                   </div>
+                   <div class="winner-luckyCode">
+                       获奖幸运码：<span class="fz_bl display-ib" id="lotteryCode"></span>
+                       <a class="luckyCode-see display-ib"  id="rcorners5" href="javascript:;">查看计算详情</a>
+                   </div>
+               </div>
+               <!--揭晓名单获奖者-->
+               <div class="lottery_id text-gray"></div>
+               <div class="not-participation" id="myAttend">
+                     <!--您还没有参与本期商品哦！-->
+                   <p class="nomargin">您参与了：<span class="text-red" id="attend_count_Count"></span>人次</p>  
+                   <p class="nomargin">云购号码：<a href="javascript:;" id="alertList2" class="text-blue">查看参与码</a></p>
+               </div>
+               <!--<div class="not-participation">
+                     <a href="#" class="text-skyblue">请登录</a>，查看你的夺宝号码！
+               </div>-->
+              
+        </div>
+	    <!--商品列表-->
+        <div class="product_list row">
+           <div class="list_img position-re">
+               <a href="javascript:;" class="link" id="details_link">
+                   图文详情<span class="text-gray">（建议wifi下查看）</span> 
+                   <span class="icon-angle-right position-ab icon-right"></span>
+               </a>
+           </div>
+           <div class="list_past position-re">
+               <a href="javascript:;" class="link" id="BeforePublishList">
+                   往期揭晓
+                   <span class="icon-angle-right position-ab icon-right"></span>
+               </a>
+           </div>
+           <div class="list_sun position-re padding-l-r-1">
+               <a href="javascript:;" class="link" id="dis_share">
+                   晒单分享
+                   <span class="icon-angle-right position-ab icon-right"></span>
+               </a>
+           </div>
+          <!--js展开-->
+          <div class="panel-group" role="tablist">
+              <div class="more_Record">
+                  <div class="morepation position-re">
+                       <a class="link up_down_btn" role="button" data-toggle="collapse" href="#collapseListGroup1" aria-expanded="false" aria-controls="collapseListGroup1">
+                            所有参与记录<span style="color:#999;"><!--（自2015-12-09  15:03:30开始）--></span>
+                            <span class="icon-caret-down position-ab icon-right"></span>
+                        </a>
+                  </div>
+                  <!--<div class="panel-heading morepation" role="tab" id="collapseListGroupHeading1">
+                     <div class="panel-title list_own position-re">
+                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapseListGroup1" aria-expanded="false" aria-controls="collapseListGroup1" >
+                            所有参与记录<span style="color:#999;">（自2015-12-09  15:03:30开始）</span>
+                            <span class="icon-caret-down position-ab icon-right"></span>
+                        </a>
+                     </div>
+                  </div>-->
+                  <div id="collapseListGroup1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded="false" style="height: 0px;">
+                      <!--参与记录展开内容-->
+                      <div class="Record-Open">
+                          <div id="pro-view-4">
+                             <ul class="Record-Open-list" id="attendList">
+                                <div class="loading"></div>
+                                <!--<li>
+                                   <div class="Record-Open-time">2016-01-06</div>
+                                   <div class="clearfix open-content">
+                                        <div class="avatar">
+                                          <a href="#">
+                                               <img width="35" height="35" src="images/tx.png" alt="">
+                                          </a>
+                                        </div>
+                                        <div class="text">
+                                           <span style="margin-bottom:5px;" class="nickname">
+                                              <a href="#" class="nickname-nc">用户昵称七个字</a>
+                                               <span>（IP所在地址）</span>
+                                                 </br>
+                                           </span>
+                                           <span style="margin-bottom:5px;">参与了<span class="text-red">3</span>人次  2015-12-09  18:40:08.896</span>
+                                        </div>
+                                   </div>
+                                </li>-->
+                                
+                             </ul>
+                          </div>
+                      </div>
+                      <!--参与记录展开内容-->
+                  </div>
+              </div>
+          </div> 
+                   <!--js展开-->
+           <!--参与记录展开内容-->
+        </div>
+        <!--底部加入立即前往-->
+         <div class="footer-top clearfix">
+            <div class="clearfix footer-topBox-adv">
+                   最新一期正在火速进行中...
+               <a href="javascript:;" class="footer-top_list" style="text-decoration: none;" id="the_new">
+                 <span class="Button3">立即参与</span>
+               </a>
+            </div>   
+        </div>
+       <!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+        
+        
+</div>
+<!--返回顶部-->
+<a href="javascript:;" class="return_top position-ab">
+    <span class=" icon-arrow-up"></span>
+</a>
+<!--模态框-----中奖者的参与码-->
+<!--<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+<div class="modal-dialog modal-dialog-2" role="document">
+  <div class="modal-content modal-content-2">
+    <div class="modal-header modal-header-2">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title" id="pri_myAttend_count2">我总共参与了</h4>
+    </div>
+    <div class="modal-body" id="pri_luckyCode">
+       
+    </div>
+ 
+  </div>
+</div>
+</div>-->
+<!--模态框-----我的参与码-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ><!--data-backdrop="static"-->
+<div class="modal-dialog modal-dialog-2" role="document">
+  <div class="modal-content modal-content-2">
+    <div class="modal-header modal-header-2">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title" id="myAttend_count2">我总共参与了</h4>
+    </div>
+    <div class="modal-body" id="luckyCode">
+       <!--<div class="well">
+         <p class="text-gray2"></p>
+         <p></p>
+       </div>-->
+    </div>
+    <!--<div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div>-->
+  </div>
+</div>
+</div>
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script defer src="js/jquery.flexslider-min.js"></script><!--轮播-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/public/date-transite.js"></script>
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/data_list/already_goods_details.js"></script>
+<script src="js/goods/addShoping.js"></script><!--加入购物车-->
+<script>
+$(function(){
+	 //$('#footer').load('footer.html');//加载底部区域
+	 /*出现回到顶部按钮*/
+	  $(".return_top").hide();
+	  $(window).scroll(function () {
+		  if ($(this).scrollTop() > 900) {
+			  $(".return_top").stop().show().animate({ bottom: '100px' }, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  
+		  }
+		  else {
+			  
+			  $(".return_top").stop().animate({ bottom: '-200px'}, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  }
+		  
+	  });
+	  //返回顶部
+	  $('.return_top').click(function () {
+		  $('body,html').animate({ scrollTop: 0 }, 500);
+		  $(".return_top").animate({ bottom: '-200px', opacity: '1' }, 500);
+		  return false;
+	  });
+	  /*$('.flexslider').flexslider({
+				animation: "slide",
+				slideshow: true,
+				directionNav: false,
+				animationLoop: true,
+				slideshowSpeed: 3000, 
+			  });*/
+			  
+	 //查看参与记录展开后小图标的变化
+	 $('#collapseListGroup1').on('show.bs.collapse', function () {
+		$(".up_down_btn").css("color","#ff4800");
+		$(".up_down_btn .icon-right").css({"transform":"rotate(180deg)","color":"#ff4800"});
+	 });  
+	 $('#collapseListGroup1').on('hide.bs.collapse', function () {
+		$(".up_down_btn").css("color","#333");
+		$(".up_down_btn .icon-right").css({"transform":"rotate(360deg)","color":"#333"});
+	 });
+	 
+	 /* center modal 模态框居中*/
+	centerModals();
+	$(window).on('resize', centerModals);
+	 
+	 
+})
+</script>
+</body>
+</html>

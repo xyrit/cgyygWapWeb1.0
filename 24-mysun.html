@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的晒单</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+</head>
+<body>
+<div class="container-fluid"> 
+<div class="container-fluid-pastannounce">
+        		
+	    <!--晒单分享标题-->
+        <div class="part_rec row fz_15px" id="shaidanClick">
+                  <a class="col-md-6 col-sm-6 col-xs-6 part_title_active text-center" href="#">
+                    已晒单
+                  </a>
+                  <a class="col-md-6 col-sm-6  col-xs-6 part_title  text-center" href="#">
+                    未晒单
+                  </a>
+        </div>
+      
+        
+        <!--晒单分享内容-->
+<div class="share_det_content">
+    <div id="pro-view-4">
+		<ul class="share_det_list" id="shaidanBox">
+		
+      	</ul>
+      	<a class="text_centen yishai" href="javascript:pageloda_1();">加载更多</a>
+	</div>
+</div>
+
+	
+<!--未晒单-->
+<div class="share_det_content" style="display: none; padding: 0;border: 0;margin: 0;">
+    <div id="shaidanBox2">
+	
+	</div>
+	<a class="text_centen weishai" href="javascript:pageloda_2();">加载更多</a>
+</div>
+
+
+     <!--底部菜单-->
+      	<div id="footer"></div>
+     <!--底部菜单-->
+</div>
+</div>
+<!--返回顶部-->
+<a href="javascript:;" class="return_top position-ab">
+    <span class=" icon-arrow-up"></span>
+</a>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/public/date-transite.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/public/date-transite.js"></script>
+<script src="js/user/mysun.js"></script><!--晒单列表-->
+<script>
+$(function(){
+	 //$('#footer').load('footer.html');//加载底部区域
+	 /*出现回到顶部按钮*/
+	  $(".return_top").hide();
+	  $(window).scroll(function () {
+		  if ($(this).scrollTop() > 900) {
+			  $(".return_top").stop().show().animate({ bottom: '100px' }, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  
+		  }
+		  else {
+			  
+			  $(".return_top").stop().animate({ bottom: '-200px'}, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  }
+		  
+	  });
+	  //返回顶部
+	  $('.return_top').click(function () {
+		  $('body,html').animate({ scrollTop: 0 }, 500);
+		  $(".return_top").animate({ bottom: '-200px', opacity: '1' }, 500);
+		  return false;
+	  });
+})
+</script>
+</body>
+</html>

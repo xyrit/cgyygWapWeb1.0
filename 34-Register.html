@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>注册</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+</head>
+<body>
+<div class="container-fluid"> 
+<div class="container-fluid-pastannounce">
+ 
+		<!--手机验证码-->
+       <div class="Land">
+        	<form id="chekemobile" method="post">
+             <div class="textpass1">
+	             <input type="text" id="Regmobile" maxlength="11" name="mobile" class="form-control" placeholder="手机号码">
+	              <img id="imgcaptchaBox" src=""/>
+	              <a id="click_qhimg2" href="javascript:;">换一换</a>
+	              <input style="width:48%;" type="text" id="imgverify" name="captcha" class="form-control" placeholder="图形验证码：">
+	              <input style="width:48%;" type="text" id="Regverify" name="verify" class="form-control" placeholder="手机验证码">
+<!-- 	              <input style="width:48%;" type="text" id="invite_code" name="invite_code" class="form-control" placeholder="邀请码"> -->
+	              <input type="button" onclick="sendMessage()" class="click_style" id="postverify" value="发送验证码">
+				<input id="mobile_tokenMd5" type="hidden" value="" />
+             </div>
+			
+			<div class="textpass2">
+				<input type="password" id="Regpassword" name="password" class="form-control" placeholder="密码"/>
+              	<input type="password" id="Regrepassword" name="repassword" class="form-control" placeholder="确认密码"/>
+			</div>
+              
+              
+              <button id="Register_mobile" type="button" class="btn btn-lg btn-block land_la">确认</button>
+              <button onclick="zhucecheke();" id="Register_mobile2" type="button" class="btn btn-lg btn-block land_la">免费注册</button>
+            </form>  
+        </div>
+       
+       
+       
+        <!--账号密码-->
+        <div class="Land" style="display:none;">
+        	<form id="zhucete" method="post">
+              <input type="text" id="Reguser" maxlength="11"  name="mobile_token" class="form-control" placeholder="账号：">
+              <input type="password" id="password" name="password" class="form-control" placeholder="密码：">
+              <input type="password" id="repassword" name="repassword" class="form-control" placeholder="确认：">
+              <button id="Register" type="submit" class="btn btn-lg btn-block land_la">免费注册</button>
+            </form>  
+              <div class="position-re land_a">
+                  <span>
+                       有橙果云购账号？
+                       <a href="34-Land.html" class="text-red"> 立即登陆</a>
+                  </span>
+                  <a href="34-forget_passwod.html" class="position-ab land_fr">
+                       	忘记密码？
+                  </a>
+              </div>
+              <div class="Land_login">
+                  <div class="hd text-center">
+                       <span class="position-re">第三方登录</span>
+                  </div>
+                  <div class="bd text-center">
+                       <div class="bd_qq">
+                           <a href="http://192.168.1.180/cgyyg1.0/index.php/Home/User/login?type=1" class="qq_img login_icon" style="margin-right: 50px;"></a>
+                           <a href="http://192.168.1.180/cgyyg1.0/index.php/Home/User/login?type=3" class="wx_img login_icon"></a>
+                       </div>
+                     
+                  </div>
+              
+              </div>
+          
+        </div>
+
+        <!--产品列表-->
+
+        <!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/jquery.md5.js"></script><!--md5加密-->
+<script src="js/user/Register.js"></script><!--注册验证-->
+</body>
+</html>

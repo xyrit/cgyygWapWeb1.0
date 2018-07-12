@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>参与记录</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+</head>
+<body> 
+<div class="container-fluid">
+        
+        <!--标题-->
+        <div id="navclick" class="part_rec row fz_15px">
+            <a onclick="canyuListh(0)" class="col-md-4 col-sm-4 col-xs-4 part_title_active text-center" href="#">
+              进行中
+            </a>
+            <a onclick="canyuListh(1)" class="col-md-4 col-sm-4 col-xs-4 part_title  text-center" href="#">
+              待揭晓
+            </a>
+            <a onclick="canyuListh(2)" class="col-md-4 col-sm-4 col-xs-4 part_title text-center" href="#">
+              已揭晓
+            </a>
+        </div>
+        
+        
+        <div class="part_rec_List row" id="canyujil_0" style="display: block;">
+           
+			<a id="loadingadd0" href="javascript:pageloda();" class="loadingadd fz_12px">点击加载更多</a>  
+          </div>
+          
+           
+        <!--未揭晓-->
+		
+		<!--待揭晓-->
+		 <div class="part_rec_List row" id="canyujil_1" style="display: none;">
+		 	<div class="loading"></div>
+		 	<a id="loadingadd1" href="javascript:pageloda_2();" class="loadingadd fz_12px">点击加载更多</a> 
+		 </div>
+		<!--待揭晓结束-->
+		
+		
+		<!--已揭晓-->
+		 <div class="part_rec_List row" id="canyujil_2" style="display: none;">
+			<div class="loading"></div>
+			
+			
+		 <a id="loadingadd2" href="javascript:pageloda_3();" class="loadingadd fz_12px">点击加载更多</a> 
+		 </div>
+		<!--已揭晓结束-->
+		
+		
+        <!--底部菜单-->
+      	<div id="footer"></div>
+     <!--底部菜单-->
+</div>
+<!--返回顶部-->
+<a href="javascript:;" class="return_top position-ab">
+    <span class=" icon-arrow-up"></span>
+</a>
+<!--我的参与码-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+<div class="modal-dialog modal-dialog-2" role="document">
+  <div class="modal-content modal-content-2">
+    <div class="modal-header modal-header-2">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title" id="myAttend_count2">幸运号码如下：</h4>
+    </div>
+    <div class="modal-body" id="luckyCode">
+       <!--<div class="well">
+         <p class="text-gray2"></p>
+         <p></p>
+       </div>-->
+    </div>
+   
+  </div>
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/goods/addShoping.js"></script>
+<script src="js/user/Part_record.js"></script><!--参与记录-->
+<script src="js/public/date-transite.js"></script>
+<script>
+$(function(){
+	 //$('#footer').load('footer.html');//加载底部区域
+	 /*出现回到顶部按钮*/
+	  $(".return_top").hide();
+	  $(window).scroll(function () {
+		  if ($(this).scrollTop() > 900) {
+			  $(".return_top").stop().show().animate({ bottom: '100px' }, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  
+		  }
+		  else {
+			  
+			  $(".return_top").stop().animate({ bottom: '-200px'}, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  }
+		  
+	  });
+	  //返回顶部
+	  $('.return_top').click(function () {
+		  $('body,html').animate({ scrollTop: 0 }, 500);
+		  $(".return_top").animate({ bottom: '-200px', opacity: '1' }, 500);
+		  return false;
+	  });
+	  /* center modal 模态框居中*/
+	centerModals();
+	$(window).on('resize', centerModals);
+})
+</script>
+</body>
+</html>

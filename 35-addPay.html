@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>新增银行卡</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/user/business.css"/>
+</head>
+<body>
+<div class="container" > 
+	<div class="padd_auto">
+			<div class="zhuanz_main">
+				<div class="zhuanzhan_box">
+					<div class="form-group">
+					<p><input  type="text" class="form-control kaihu_name"  name='jiner' placeholder="开户姓名"  value=""/></p>
+					    <select id='yinhangka' class="form-control"> 
+					      <option>招商银行 </option> 
+					      <option>农业银行 </option> 
+					      <option>工商银行 </option> 
+					      <option>建设银行 </option> 
+					      </select>
+					  </div>
+					<p><input type="text" class="form-control pay_zhanhao"  maxlength="20" name='jiner' placeholder="银行账号"  value=""/></p>
+					<p><input type="text" class="form-control kaihu_zhihan"  name='jiner' placeholder="开户支行"  value=""/></p>
+					<p>
+						<input type="text" class="form-control yanzhenma_input" name='jiner' placeholder="请输入验证码" value=""/>
+						<button onclick="click_yanzm();" class="yanzhenma_button" type="button">发送验证码</button>
+					</p>
+					<p class="hide" style="color:#666;margin:0;padding:0px;">已发送至绑定手机：<font class="usermobile"></font></p>
+				</div>
+				<br/>
+				<a id="pay_addButton" class="cgButton" href="javascript:;">保存</a>
+			</div>
+	</div>	
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/weixin_inc.js"></script><!--获取微信资料-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息未登陆-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script>
+var InterValObj;//timer变量，控制时间
+var count = 120; //间隔函数，1秒执行
+var curCount;//当前剩余秒数
+
+//把手机号码加密
+var reg = /^(\d{3})\d{4}(\d{4})$/;
+tel = mobile.replace(reg, "$1****$2");
+$('.usermobile').text(tel);
+
+function SetRemainTime() {
+            if (curCount == 0) {                
+                window.clearInterval(InterValObj);
+                $(".yanzhenma_button").removeAttr("disabled");
+                $(".yanzhenma_button").text("重新发送");
+                $(".yanzhenma_button").css({'background':'#ff4800'});
+            }
+            else {
+                curCount--;
+                $(".yanzhenma_button").css({'background':'#A0A0A0'});
+                $(".yanzhenma_button").text(curCount + "秒内重发");
+                
+            }
+        }
+//发送验证码
+function click_yanzm(){
+	var yinhangka = $('.form-control').find("option:selected").text();//获取选中的银行卡
+	var kaihu_name = $('.kaihu_name').val();//开户姓名
+	var pay_zhanhao = $('.pay_zhanhao').val();//银行账户
+	var kaihu_zhihan = $('.kaihu_zhihan').val();//开户支行
+	var yanzhenma_input = $('.yanzhenma_input').val();//验证码
+
+	if(kaihu_name == '' || pay_zhanhao== '' || kaihu_zhihan==''){
+		tanchuan_0('请输入完整信息','error','确定');
+		return;
+	}
+	if(pay_zhanhao.length < 20){
+		tanchuan_0('请输入正确卡号','error','确定');
+		return;
+	}
+
+	if(mobile == ''){
+		tanchuan_0('手机号码不能为空','error','确定');
+		return;
+	}
+	$.ajax({
+		type:'post',
+		url:urlPost+'/Verify/getVerify',
+		data:{
+			user_token:user,
+			cellphone:mobile,
+			type:8
+		},
+		dataType:'json',
+		success:function(data){
+			if(data['code']!=200){
+				tanchuan_0(data['info'],'error','确定');
+				return false;
+			}else{
+				$('.hide').show();
+				 curCount = count;
+			     $(".yanzhenma_button").attr("disabled", "true");
+			     $(".yanzhenma_button").text(curCount + "秒内重发");
+			     InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+			}
+		}
+
+	});
+}
+$('#pay_addButton').click(function(){
+	var yinhangka = $('.form-control').find("option:selected").text();//获取选中的银行卡
+	var kaihu_name = $('.kaihu_name').val();//开户姓名
+	var pay_zhanhao = $('.pay_zhanhao').val();//银行账户
+	var kaihu_zhihan = $('.kaihu_zhihan').val();//开户支行
+	var yanzhenma_input = $('.yanzhenma_input').val();//验证码
+
+	if(kaihu_name=='' || pay_zhanhao=='' || kaihu_zhihan==''){
+		tanchuan_0('请填写完整信息','error','确定');
+		return false;
+	}
+	$.ajax({
+		type:"post",
+		url:urlPost+"/Commission/member_banksEdit",
+		data:{
+			user_token:user,
+			account_name:kaihu_name,
+			bank_name:yinhangka,
+			bank_code:pay_zhanhao,
+			sub_branch:kaihu_zhihan,
+			code:yanzhenma_input
+		},
+		dataType:'json',
+		success:function(data){
+			if(data['code']==200){
+				tanchuan_1('新增成功','error','确定','35-bankPay.html');
+			}else{
+				tanchuan_0(data['info'],'error','确定');
+			}
+		}
+	});	
+});
+</script>
+</body>
+</html>

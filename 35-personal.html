@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>个人中心</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/user/business.css" />
+<style>
+.container-fluid{
+	padding-left: 0;
+	padding-right: 0;
+}
+</style>
+</head>
+<body>
+<div class="container-fluid" >
+    <!--个人中心头像资料-->
+   <div class="personal_bg">
+				<div class="userboxy">
+                  	<a href="28-my-data.html" class="userImgtou">
+                      <img class="userImg" id="user_path" src="images/tx.png"/>
+                    </a>
+                    
+	                 <span style="color: #fff;" id="nickname" class="position-ab name">此处是您的姓名</span>
+	                 
+	                 <a style="float: right;" href="29-Setup.html" class="shezhi_img"></a>
+          </div>
+   </div>
+       
+    <div class="personal_rch position-re" style="color:#fff">
+                     	&nbsp; &nbsp;账户余额<span id="account">0</span>&nbsp;橙果币
+                     <button class="btn btn-primary btn-sm buy position-ab fz_14px" type="button" onClick="location.href='32-Recharge.html'">充值</button>
+    </div>
+  
+         
+  <div class="chuanye_index">
+			<div class="cente_box">
+				<ul>
+<!-- 					<li>
+						<img src="images/chuanye.png" class="pull-left find_img" alt="0元创业"/>
+						<a href="35-business.html">0元创业<span class="icon-angle-right"></span></a>
+					</li> -->
+					<li>
+						<img src="images/per_icon_01.png" class="pull-left find_img" alt="充值记录"/>
+						<a style="border:none" href="20-Rec_record.html">充值记录<span class="icon-angle-right"></span></a>
+					</li>
+				</ul>
+				<ul style="margin-top: 10px;">
+					<li>
+						<img src="images/per_icon_02.png" class="pull-left find_img" alt='参与记录'/>
+						<a href="21-Part_record.html">参与记录<span class="icon-angle-right"></span></a>
+					</li>
+					<li>
+						<img src="images/per_icon_03.png" class="pull-left find_img" alt="中奖记录"/>
+						<a style="border:none" href="22-win-record.html">中奖记录<span class="icon-angle-right"></span></a>
+					</li>
+				</ul>
+				
+				<ul style="margin:10px 0px 0px">
+					<li>
+						<img src="images/per_icon_04.png" class="pull-left find_img" alt="我的晒单"/>
+						<a href="24-mysun.html">我的晒单<span class="icon-angle-right"></span></a>
+					</li>
+					
+					<li>
+						<img src="images/jifen.png" class="pull-left find_img" alt="我的晒单"/>
+						<a style="border: none;" href="35-integral.html">积分消费<span class="icon-angle-right"></span></a>
+					</li>
+				</ul>
+      
+      <ul style="margin-top: 10px;">
+        <li>
+            <img src="images/geren_text.png" class="pull-left find_img" alt="我的资料"/>
+            <a style="border: none;" href="28-my-data.html">我的资料<span class="icon-angle-right"></span></a>
+          </li>
+      </ul>
+			</div>
+		</div>
+		
+            
+            
+  <!--主体内容-->
+         <div class="main_bg">
+         	<!--
+             <div class="p_rb" style="display:none">
+                   <div class="col-xs-4 col-sm-4 col-md-4 text-center p_rb_1">
+                      <img src="images/redbox_1.png">
+                      <p>可用红包</p>
+                      <p>4</p>
+                   </div>
+                   <div class="col-xs-4 col-sm-4 col-md-4 text-center p_rb_1">
+                      <img src="images/redbox_2.png">
+                      <p>可用红包</p>
+                      <p>4</p>
+                   </div>
+                   <div class="col-xs-4 col-sm-4 col-md-4 text-center p_rb_1">
+                      <img src="images/redbox_3.png">
+                      <p>可用红包</p>
+                      <p>4</p>
+                   </div>
+             </div> 
+             -->
+             
+             <div class="personal_List_bg">
+                     <!--<a href="#" class="person position-re padding-l-r-1 clearfix">
+                            <img src="images/per_icon_05.png" class="pull-left find_img">
+                            <span class="fz_15px lg_22px person_title position-ab">每日签到</span>
+                            <span class="icon-angle-right position-ab icon-right"></span>
+                     </a>-->
+                     
+                    <!--  <a href="javascript:removeUser();" id="exit_user" class="person position-re padding-l-r-1 clearfix">
+                            <img src="images/per_icon_05.png" class="pull-left find_img">
+                            <span class="fz_15px lg_22px person_title position-ab">退出账号</span>
+                            <span class="icon-angle-right position-ab icon-right"></span>
+                     </a> -->
+             </div>
+         </div>
+      </div> 
+</div>       
+
+     <!--底部菜单-->
+      	<div id="footer"></div>
+     <!--底部菜单-->
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/user/personal.js"></script><!--个人中心-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/public/weixin_inc.js"></script>
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息-->
+<script type="text/javascript">
+	 $('#footer').load('footer.html');//加载底部菜单
+</script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>已揭晓-计算结果</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/><!--为了防止苹果手机自动把数字变成号码导致样式失效-->
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/flexslider.css"/><!--轮播-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+</head>
+<body>
+<div class="container-fluid padding-b-10"> 
+<div class="container-fluid-pastannounce">
+
+        <!--计算公式-->
+        <div class="cal row">
+          <div class="padding-l-r-1">
+                <p class="lg_22px">计算公式</p>
+                <p class="lg_22px"> [( 数值A+数值B) ÷ 商品总参与人次 ] 取余数 + 10000001</p>
+           </div>
+        </div>
+        
+	    <!--数值列表-->
+        <div class="cal_numerical row">
+          <div class="padding-l-r-1  position-re">
+                <p class="lg_22px">数值A</p>
+                <p class="lg_22px"> = 截止该商品开奖时间点<span id="last_attendTime" class="text-red padding-l-r-5"></span>前最后50条全站参与记录</p>
+                <p class="lg_22px"> = <span class="text-red" id="totalTime"></span>
+                 <a class="cal_Open position-ab up_down_btn position-re" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="padding-right:15px">
+                    收缩
+                    <!--<span class="icon-caret-down icon-right fz_16px"></span>-->
+                    <span class="icon-caret-up position-ab icon-right fz_16px" style="right:0; top:3px"></span>
+                </a>
+           </div>
+           <div id="collapseOne" class="panel-collapse collapse a_r_d in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body row">
+                         <table class="table">
+                              <thead>
+                                 <tr>
+                                    <th>参与时间</td>
+                                    <th>参与用户</td>
+                                 </tr>
+                              </thead>
+                              <tbody id="result_list">
+                                <tr>
+                                   <td colspan="2"><div class="loading"></div></td>
+                                </tr>
+                                
+                                <!--<tr>
+                                  <td>2015-12-10  10:12:23.126 <span class="text-red"> → 101223126</span></td>
+                                  <td>用户昵称七个字</td>
+                                </tr>-->
+                                
+                              </tbody>
+                        </table>
+                    </div>
+           </div>
+        </div>
+         <div class="cal_numerical row position-re">
+          <div class="padding-l-r-1">
+                <p class="lg_22px">数值B</p>
+                <p class="lg_22px"> = 最近一期中国福利彩票“老时时彩”的开奖结果</p>
+                <p class="lg_22px">= <span class="text-red" id="hour_code"></span><span>（第<span id="hour_lottery"></span>期）</span>
+                <p class="lg_22px">
+                   <a class="cal_Open position-ab" href="http://www.shishicai.cn/cqssc/">开奖查询</a>
+                </p>
+            </div>
+        </div>
+        <div class="cal_numerical row">
+            <div class="padding-l-r-1">
+                 <p class="fz_15px lg_22px">计算结果</p>
+                 <p class="fz_15px lg_22px"><span class="lucky-number">获奖幸运码：<span class="text-red fz_bl" id="lottery_code"></span></span><p>
+            </div>
+        </div>
+        
+        
+        
+       <!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<!--<script defer src="js/jquery.flexslider-min.js"></script>--><!--轮播-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/data_list/count_result.js"></script>
+<script src="js/public/date-transite.js"></script>
+<!--<script src="js/goods/addShoping.js"></script>--><!--加入购物车-->
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script>
+$(function(){
+	 //$('#footer').load('footer.html');//加载底部区域
+	 /*出现回到顶部按钮*/
+	  $(".return_top").hide();
+	  $(window).scroll(function () {
+		  if ($(this).scrollTop() > 900) {
+			  $(".return_top").stop().show().animate({ bottom: '100px' }, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  
+		  }
+		  else {
+			  
+			  $(".return_top").stop().animate({ bottom: '-200px'}, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  }
+		  
+	  });
+	  //返回顶部
+	  $('.return_top').click(function () {
+		  $('body,html').animate({ scrollTop: 0 }, 500);
+		  $(".return_top").animate({ bottom: '-200px', opacity: '1' }, 500);
+		  return false;
+	  });
+	
+			  
+	 //查看参与记录展开后小图标的变化
+	 $('#collapseOne').on('show.bs.collapse', function () {
+		
+			$(".up_down_btn").css("color","#428BCA");
+			$(".up_down_btn").html('收缩<span class="icon-caret-down position-ab icon-right fz_16px" style="right:0; top:3px"></span>');
+		    $(".up_down_btn .icon-right").css({"transform":"rotate(180deg)","color":"#428BCA"});
+		
+		
+	 });  
+	 $('#collapseOne').on('hide.bs.collapse', function () {
+		 
+		
+			$(".up_down_btn").css("color","#ff4800");
+			$(".up_down_btn").html('展开<span class="icon-caret-down position-ab icon-right fz_16px" style="right:0; top:3px"></span>');
+		    $(".up_down_btn .icon-right").css({"transform":"rotate(360deg)","color":"#ff4800"});
+		
+		
+	 });
+})
+</script>
+
+</body>
+</html>

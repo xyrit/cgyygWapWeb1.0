@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>注册登录</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+</head>
+<body>
+<div class="container-fluid"> 
+<div class="container-fluid-pastannounce">
+        <!--账号密码-->
+        <div class="Land">
+        	<form  action="#" method="post">
+              <input type="text" id="user" maxlength="11" class="form-control" placeholder="手机号码">
+              <input type="password" id="pass" class="form-control" placeholder="密码">
+              <img id="imgcaptchaBox2" src="" />
+	          <a id="click_qhimg" href="javascript:;">换一换</a>
+	          <input type="text" id="imgverify2" name="captcha" class="form-control" placeholder="图形验证码">
+              <button onclick="loginche();" id="landcheki" type="button" class="btn btn-lg btn-block land_la">登录</button>	
+        	
+        	</form>  
+              <div class="position-re land_a">
+                  <span>
+                       没有橙果云购账号？
+                       <a style="color: #037CD2;" href="34-Register.html" class="text-red"> 立即注册</a>
+                  </span>
+                  <a style="color: #037CD2;" href="34-forget_passwod.html" class="position-ab land_fr">
+                       	忘记密码？
+                  </a>
+              </div>
+              <div class="Land_login">
+                  <div class="hd text-center">
+                       <span class="position-re">第三方登录</span>
+                  </div>
+                  <div class="bd text-center">
+                       <div class="bd_qq">
+                         <a  href="" class="qq_img login_icon qq_denglu" ></a>
+                       	   <a href="" class="wx_img login_icon weixin_denglu"></a>
+                           
+                           <a href="" class="xinalan_img weibo_denglu" ></a>
+
+                       </div>
+                  </div>
+              </div>
+        </div>
+        <!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/jquery.md5.js"></script><!--md5加密-->
+<script src="js/user/Land.js"></script>
+<script src="js/sweetalert-dev.js"></script>
+<script type="text/javascript">
+  $(function(){
+    var qq_denglu = urlPost+'/User/login?type=1';
+    var weixin_denglu = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc10af3f90aced41f&redirect_uri="+urlPost+"/OtherLogin/oauth&response_type=code&scope=snsapi_userinfo&state=1&url_type=5&#wechat_redirect";
+
+     var weibo_denglu = urlPost+'/User/login?type=2'
+
+    $('.qq_denglu').attr('href',qq_denglu);
+
+    $('.weixin_denglu').attr('href',weixin_denglu);
+    
+    $('.weibo_denglu').attr('href',weibo_denglu);
+
+  });
+</script>
+</body>
+</html>

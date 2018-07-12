@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>绑定手机号码   </title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+</head>
+<body>
+<div class="container-fluid"> 
+<div class="container-fluid-pastannounce">
+      <div class="d_number row"> 
+                <div style="padding: 10px;" class="d_m_control position-re">
+                	<div class="cheke_1">
+	                     <input  type="text" id="Mobil" placeholder="请输入手机号码" style="margin-bottom: 15px;" maxlength="11"  class="form-control" value=""/>
+	                     <div style="width:100%">
+	                     	<input  type="text" id="bdyanzhen_xg" style="width:50%;float: left;margin-bottom: 15px;" maxlength="4" placeholder="请输入验证码" class="form-control" value=""/>
+	                     	<a id="bdPosyanzhen" href="javascript:;" style="float:right;border-radius: 3px;color: #fff; display:block;width:100px;text-align: center;line-height: 33px; height: 33px;background: #ff4800;" class="w-button">获取验证码</a>
+	                     </div>
+	                </div> 
+
+		              	 <button id="bdmo_xiug" type="button" class="top_nav btn btn-lg btn-block land_la">绑定</button>	
+		              	 
+                </div>
+     <!--底部菜单-->
+      	<div id="footer"></div>
+    <!--底部菜单-->
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息-->
+<script src="js/jquery.easing.js"></script>
+<script>
+var InterValObj;//timer变量，控制时间
+var count = 120; //间隔函数，1秒执行
+var curCount;//当前剩余秒数
+function SetRemainTime() {
+            if (curCount == 0) {                
+                window.clearInterval(InterValObj);
+                $("#bdPosyanzhen").removeAttr("disabled");
+                $("#bdPosyanzhen").text("重新发送");
+                $("#bdPosyanzhen").css({'background':'#ff4800'});
+            }
+            else {
+                curCount--;
+                $("#bdPosyanzhen").css({'background':'#A0A0A0'});
+                $("#bdPosyanzhen").text(curCount);
+                
+            }
+        }
+
+$('#bdPosyanzhen').click(function(){
+		var Mobil = $('#Mobil').val();
+		if(Mobil=='' || Mobil.length<11){
+			tanchuan_0('手机号码不正确！','error','确定');
+			return false;
+		}
+		$.ajax({
+			type:"post",
+			url:urlPost+"/Verify/getVerify",
+			data:{
+				cellphone:Mobil,
+				user_token:user,
+				type:15
+			},
+			dataType:'json',
+			success:function(data){
+				if(data['code']==200){
+					tanchuan_0('发送成功','success','确定');
+					 curCount = count;
+				     $("#bdPosyanzhen").attr("disabled", "true");
+				     $("#bdPosyanzhen").text(curCount);
+				     InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+				}else{
+					tanchuan_0(data['info'],'success','确定');
+				}
+			}
+					
+		});
+	});
+
+$('#bdmo_xiug').click(function(){
+		var Mobil = $('#Mobil').val();
+		var bdyanzhen_xg = $('#bdyanzhen_xg').val();
+		if(Mobil=='' || Mobil.length<11){
+			tanchuan_0('手机号码不正确！','error','确定');
+			return false;
+		}else if(bdyanzhen_xg==''){
+			tanchuan_0('请输入验证码！','error','确定');
+			return false;
+		}else{
+			$.ajax({
+			type:"post",
+			url:urlPost+"/Verify/mobileBind",
+			data:{
+				cellphone:Mobil,
+				user_token:user,
+				verify:bdyanzhen_xg
+			},
+			dataType:'json',
+			success:function(data){
+				if(data['code']==200){
+					tanchuan_0('绑定成功','success','确定');
+					window.localStorage.mobile = Mobil;//覆盖手机号码
+					window.history.back();//返回上一页
+				}else{
+					tanchuan_0(data['info'],'success','确定');
+				}
+			}
+					
+			});
+		}
+	});
+</script>
+</body>
+</html>

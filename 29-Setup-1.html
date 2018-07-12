@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>设置帮助_修改密码</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+</head>
+<body>
+<div class="container-fluid"> 
+        <!--内容-->
+        <div class="row c_password">
+        	<form id="userPassword" method="post">
+	          <div class="c_password_1">
+	               <input placeholder="请输入原始密码" id="yspass" type="password" data-pro="input" class="w-bar-input form-control" type="text" name="" value=""/>
+	          </div>
+	          <div class="c_password_2">
+	               <input placeholder="请输入新密码" id="xinpass" type="password" data-pro="input" class="w-bar-input form-control" type="text" name="" value=""/>
+	          </div>
+	          <div class="c_password_2">
+	               <input placeholder="请再次输入新密码" id="rexinpass" type="password" data-pro="input" class="w-bar-input form-control" type="text" name="" value=""/>
+	          </div>
+	        </div> 
+        
+	      <div class="data_icon padding-l-r-1">
+	                 <button type="button"  onclick="Userpaddwod();" class="btn btn-primary btn-lg btn-block Sign_out">确认修改</button>
+	      </div>
+      </form>
+        <!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息-->
+<script src="js/jquery.md5.js"></script><!--md5加密-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script>
+	//修改密码开始 
+	function Userpaddwod(){
+		var yspass = $('#yspass').val();
+		var xinpass = $('#xinpass').val();
+		var rexinpass=$('#rexinpass').val();
+		//var passReg=/^\w{6,20}$/;  //6-20位字符
+		if(yspass=='' || xinpass=='' || rexinpass==''){
+			tanchuan_0('请输入完整密码！','error','确定');
+			return false;
+		}else if(xinpass!=rexinpass){
+			tanchuan_0('两次密码不一致！','error','确定');
+			return false;
+		}else if(xinpass.length<6 || xinpass.length>20){
+			tanchuan_0('请输入6-20位密码字符！','error','确定');
+			return false;
+		}else{
+		var yspass = $.md5($('#yspass').val());
+		var xinpass = $.md5($('#xinpass').val());
+		var rexinpass=$.md5($('#rexinpass').val());
+			$.ajax({
+			type:"post",
+			url:urlPost+"/ucenter/upPassword",
+			data:{
+				user_token:user,
+				oldpassword:yspass,
+				newpassword:xinpass,
+				renewpassword:rexinpass
+			},
+			dataType:'json',
+			success:function(data){
+				if(data['code']==200){
+					tanchuan_1('修改密码成功！','success','确定','29-Setup.html');
+				}else{
+					tanchuan_0(data['info'],'error','确定');
+				}
+			}
+		});
+		}
+	}
+</script>
+</body>
+</html>

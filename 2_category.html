@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>橙果云购-商品分类</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/><!--为了防止苹果手机自动把数字变成号码导致样式失效-->
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"/><!--alert弹窗-->
+</head>
+<body> 
+<div class="container-fluid">
+               
+        <!--商品分类，最新-->
+           <div class="cate row">
+             <div class="padding-l-r-1">
+                  <!--<div class="cate_f ">
+                      <a href="#" class="active">
+                          商品分类
+                          <span class="icon-angle-down"></span>
+                      </a>
+                      
+                  </div>-->
+                  <div class="dropdown cate_f">
+                        <a role="button" data-toggle="dropdown" data-target="#" href="javascript:;" class="position-re" style="padding-right:20px">
+                            <span id="category_wenzi">商品分类</span>
+                            <span class="icon-angle-down padding-l-r-5 position-ab" id="menu_icon" style="right:3px;top:2px"></span>
+                        </a>
+                        <ul class="dropdown-menu cg_dropdown-menu" role="menu" aria-labelledby="dLabel" id="menuList">
+                           <!--<li><a href="#">全部商品</a></li>
+                           <li><a href="#">全部商品</a></li>
+                           <li><a href="#">全部商品</a></li>-->
+                        </ul>
+                  </div>
+                  <div class="cate_r position-re orderList nomargin">
+                      <!--<ul class="position-ab cate_r_list">
+                          <li>
+                              <a href="#">最热</a>
+                          </li>
+                          <li>
+                              <a href="#">最新</a>
+                          </li>
+                          <li>
+                              <a href="#">剩余人次</a>
+                          </li>
+                          <li>
+                              <a href="#">总需人次</a>
+                              <span class="icon-angle-up position-ab"></span>
+                              <span class="icon-angle-down position-ab"></span>
+                          </li>
+                      </ul>-->
+                      <a href="javascript:;" class="orderList_item active position-re fz_16px" id="sort_hot" data-type="hot">最热</a>
+                      <a href="javascript:;" class="orderList_item position-re fz_16px" id="sort_new" data-type="new">最新</a>
+                      <a href="javascript:;" class="orderList_item position-re fz_16px" id="sort_fast" data-type="fast">最快揭晓</a>
+                      <a href="javascript:;" class="orderList_item position-re fz_16px" id="sort_price" data-type="price" data-sort="desc">
+                        总需人次
+                        <span class="icon-angle-up"></span>
+                        <span class="icon-angle-down"></span>
+                      </a>
+                  </div>
+              </div>
+           </div>
+           
+        <!--商品分类，最新-->
+        
+        <!--产品列表-->
+        <div class="allgood_b_more" id="goodsList">
+            <div class="loading"></div>
+            <!--<div class="allgood-publish row">
+                    <div class="col-md-4 col-sm-4 col-xs-4 allgood-publis-list text-center">
+                       <a href="3_goods-ing.html"><img class="img_publish" src="images/1_03.jpg"></a>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-8 allgood-publis-list_1 margin-l-r-0">
+                       <a href="3_goods-ing.html"><p class="cate_title fz_15px">Apple MacBook Pro 15.4英寸笔记本</p></a>
+                       <div class="progress productList-progress indexProgress allgood pull-left" style="height:4px;">
+                          <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                              <span class="sr-only">60% Complete (warning)</span>
+                          </div>
+                       </div>
+                       <p class="number fz_14px">总需28200人次<span class="number_1 position-re">剩余<span class="text-skyblue">10840</span></span></p>
+                       <div class="allgood_car pull-left position-ab">
+                           <span class="icon-shopping-cart icon-allgood_car"></span>
+                       </div>
+                   </div>
+             </div>-->
+        </div> 
+        <a href="javascript:;" class="loadingMore fz_12px">点击加载更多</a>
+        <!--产品列表-->
+      
+
+      <!--底部文字-->
+        <div id="footer2"></div>
+      <!--底部文字-->
+
+       
+      <!--底部菜单-->
+      	<div id="footer"></div>
+     <!--底部菜单-->
+</div>
+<!--返回顶部-->
+<a href="javascript:;" class="return_top position-ab">
+    <span class=" icon-arrow-up"></span>
+</a>
+<!-- Modal 什么是橙果云购-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 10px;top: 5px;font-size: 30px;opacity: 1;color:#fff">
+                <span class="icon-remove-sign"></span>
+             <!--<span aria-hidden="true">&times;</span>-->
+             </button>
+            <img src="images/guide.jpg" style="width:100%;"/>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/sweetalert-dev.js"></script>
+<script src="js/goods/addShoping.js"></script>
+<script src="js/data_list/category.js"></script>
+<script>
+$(function(){
+
+$('#footer2').load('footer_2.html');//加载底部文字
+	//bootstrap 下拉菜单打开和关闭时相应的动作
+	$('.dropdown').on('show.bs.dropdown', function () {
+	  $('.dropdown>a').addClass("active");
+	});
+	$('.dropdown').on('hide.bs.dropdown', function () {
+	  $('.dropdown>a').removeClass("active");
+	});
+	$('#footer').load('footer.html');//加载底部区域
+	 /*出现回到顶部按钮*/
+	  $(".return_top").hide();
+	  $(window).scroll(function () {
+		  if ($(this).scrollTop() > 900) {
+			  $(".return_top").stop().show().animate({ bottom: '100px' }, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  
+		  }
+		  else {
+			  
+			  $(".return_top").stop().animate({ bottom: '-200px'}, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  }
+		  
+	  });
+	  //返回顶部
+	  $('.return_top').click(function () {
+		  $('body,html').animate({ scrollTop: 0 }, 500);
+		  $(".return_top").animate({ bottom: '-200px', opacity: '1' }, 500);
+		  return false;
+	  });
+	  //导航展开后小图标的变化
+	  $('.dropdown').on('show.bs.dropdown', function () {
+		 $("#menu_icon").css({"transform":"rotate(180deg)","top":"0px"});
+	  })
+	  $('.dropdown').on('hide.bs.dropdown', function () {
+		 $("#menu_icon").css({"transform":"rotate(360deg)","top":"2px"});
+	  })
+	  /* center modal 模态框居中*/
+	  centerModals();
+	  $(window).on('resize', centerModals);
+})	
+</script>
+</body>
+</html>

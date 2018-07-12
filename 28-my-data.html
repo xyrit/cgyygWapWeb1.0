@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的资料</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+</head>
+<body>
+<div class="container-fluid"> 
+<div class="container-fluid-pastannounce">
+        
+		<!--我的资料-->
+         <div class="row">
+              <div class="data position-re padding-l-r-1">
+	                 <a href="28-my-data_img.html" class="link">
+	                   	头像 
+	                   <img id="sltIMG" src="images/tx.png"  width="35" height="35" class="position-ab data-img">
+	                   <span class="icon-angle-right position-ab icon-right"></span>
+	                 </a>  
+              </div>
+          
+          
+              <div class="data position-re padding-l-r-1">
+                <a href="28-my-data-2.html" class="link">
+                   昵称 
+                   <span id="user_name" class="position-ab"></span>
+                   <span class="icon-angle-right position-ab icon-right"></span>
+                </a>
+              </div>
+          
+          
+              <div class="data position-re padding-l-r-1">
+                <a href="28-my-data-3.html" class="link">
+                   手机号码 
+                   <span id="user_mobile" class="position-ab"></span>
+                   <span class="icon-angle-right position-ab icon-right"></span>
+                 </a>
+              </div>
+          
+          
+              <div class="data position-re padding-l-r-1">
+                <a href="28-my-data-4.html" class="link">
+                   收货地址 
+                   <span class="icon-angle-right position-ab icon-right"></span>
+                 </a>
+              </div>
+        </div>
+        
+       
+        
+        <!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script>
+    $('#user_name').text(nickname);//设置名称
+    $('#user_mobile').text(mobile);//设置手机号码
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>最新揭晓</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/flexslider.css"/><!--轮播-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"/><!--alert弹窗-->
+</head>
+<body> 
+<div class="container-fluid padding-b-10">
+	    <!--商品列表-->
+	    <div class="news-product row position-re" id="new_list">
+            <div class="loading"></div>
+            <!--<div class="col-xs-6 col-sm-6 col-md-6 news-productlist2">
+                 <img src="images/1_03.jpg" alt="">
+                 <h3 class="fz_15px nomargin n_pro_title pContent">Apple MacBook Pro 15.4英寸笔记本</h3>
+                 <p class="n_annou_ing text-center">正在计算中...</p>
+            </div>-->
+            <!--<div class="col-xs-6 col-sm-6 col-md-6 news-productlist1">
+                 <a href="#"><img src="images/1_03.jpg" alt=""></a>
+                 <p class="fz_15px pContent lg_22px"><a href="#">Apple MacBook Pro 15.4英寸笔记本</a></p>
+                 <p class="lg_22px">获奖者：
+                   <a href="36-persona_ck.html">
+                       <span class="text-skyblue">用户昵称七个字</span>
+                   </a>
+                 </p>
+                 <p class="lg_22px">本期参与：<span class="text-red">3</span>人次</p>
+                 <p class="lg_22px">获奖幸运码：<span class="text-red">100000003</span></p>
+                 <p class="lg_22px">揭晓时间：2015-12-09  21:23:00</p>
+            </div>-->
+                  
+        </div>
+        <a href="javascript:;" class="loadingMore fz_12px">点击查看更多商品</a>
+      
+        
+        <!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+</div>
+<!--返回顶部-->
+<a href="javascript:;" class="return_top position-ab">
+    <span class=" icon-arrow-up"></span>
+</a>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script defer src="js/jquery.flexslider-min.js"></script><!--轮播-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/data_list/new_listPublish.js"></script>
+<script src="js/goods/addShoping.js"></script><!--加入购物车-->
+<script src="js/public/date-transite.js"></script>
+<script src="js/sweetalert-dev.js"></script>
+<!--<script src="js/blocksit.min.js"></script>--><!--瀑布流布局-->
+<script>
+$(function(){
+	 //$('#footer').load('footer.html');//加载底部区域
+	 /*出现回到顶部按钮*/
+	  $(".return_top").hide();
+	  $(window).scroll(function () {
+		  if ($(this).scrollTop() > 900) {
+			  $(".return_top").stop().show().animate({ bottom: '100px' }, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  
+		  }
+		  else {
+			  
+			  $(".return_top").stop().animate({ bottom: '-200px'}, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  }
+		  
+	  });
+	  //返回顶部
+	  $('.return_top').click(function () {
+		  $('body,html').animate({ scrollTop: 0 }, 500);
+		  $(".return_top").animate({ bottom: '-200px', opacity: '1' }, 500);
+		  return false;
+	  });
+})
+</script>
+</body>
+</html>

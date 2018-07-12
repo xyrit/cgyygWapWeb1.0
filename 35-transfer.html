@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>佣金消费</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/user/business.css"/>
+</head>
+<body>
+<div class="container" > 
+	<div class="padd_auto">
+			<div class="zhuanz_main">
+				<div class="zhuanzhan_box">
+					<p>可转佣金：<span class="red" style="font-size: 20px;">0.00</span>&nbsp;元</p>
+					<p><input type="text" id="yj_font" class="form-control" name='jiner' placeholder="转账金额必须为整数" value=""/></p>
+				</div>
+				<br/>
+				<a class="cgButton" href="javascript:;">确定转账</a>
+			</div>
+	</div>
+			
+			
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/weixin_inc.js"></script><!--获取微信资料-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息未登陆-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script>
+var glo_remain;
+$.ajax({
+		type:"post",
+		url:urlPost+"/Commission/countcommission",
+		data:{
+			user_token:user
+		},
+		dataType:'json',
+		success:function(data){
+		
+			var remain 		  = data['list']['remain'];//可用佣金
+			glo_remain=remain;
+			$('.red').text(remain);
+			
+		},
+	});
+
+	$('.cgButton').click(function(){
+		var yj_font = $('#yj_font').val();//输入金额
+		if(yj_font==''){
+			tanchuan_0('您转账金额不能为空！');
+			return false;
+		}
+		if(parseInt(yj_font)>parseInt(glo_remain)){
+			tanchuan_0('您转账金额不能大于实际金额','error','确定');
+			return false;
+		}
+		$.ajax({
+			type:"post",
+			url:urlPost+"/Commission/bring_forward",
+			data:{
+				user_token:user,
+				consumption_money:yj_font
+			},
+			dataType:'json',
+			success:function(data){
+				if(data['code']==200){
+					tanchuan_0('转账成功','success','确定');
+				}else{
+					tanchuan_0(data['info'],'error','确定');
+				}
+			}
+		});
+	});
+</script>
+</body>
+</html>

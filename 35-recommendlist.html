@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的推荐人</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/user/business.css"/>
+</head>
+<body>
+<div class="container" > 
+	<div id="user_tuijian">
+		<div class="loading"></div>
+		
+	</div>
+	<div class="padd_auto">
+		<span class="font_666 tite">温馨提示：</span>
+		<p class="font_666">一级推荐人可获得您消费金额的4%做为佣金，二级推荐人可获得您消费金额的2%做为佣金</p>
+		
+	</div>
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/weixin_inc.js"></script><!--获取微信资料-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息未登陆-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script type="text/javascript">
+	 $.ajax({
+	 	type:"post",
+	 	url:urlPost+"/Commission/recommendedList",
+	 	data:{
+	 		user_token:user
+	 	},
+	 	beforeSend: function(){
+			$(".loading").show();
+		},
+	 	dataType:'json',
+	 	success:function(data){
+	 		$(".loading").hide();
+	 		var userinfo = data['list'];//推荐列表信息
+	 		if(userinfo==''){
+				$('#user_tuijian').append('<p style="text-align: center;line-height:50px;">您暂时没有推荐人！</p>');
+				return false;
+			}
+			var user_list='';
+			$.each(userinfo,function(k,value) {
+				var level = data['list'][k]['level'];//级别 1位一级 2位二级
+		 		if(level==1){
+		 			level='一级';
+		 		}else{
+		 			level='二级';
+		 		}
+				var nickname = userinfo[k]['userInfo']['nickname'];//推荐人名称
+				var uid 	 = userinfo[k]['userInfo']['uid'];//推荐人名称
+				var face 	 = userinfo[k]['userInfo']['face'];//推荐人头像
+				var mobile   = userinfo[k]['userInfo']['mobile'];//推荐人手机
+				var commission= userinfo[k]['commission'];//推荐人佣金
+				
+				if(commission==null){
+					commission=0;
+				}
+				user_list+='<div class="tuijian_list">';
+				user_list+='<div class="tuijian_left">';
+				user_list+='<div class="img_border">';
+				user_list+='<img src="'+face+'" width="100%"/>';
+				user_list+='</div>';
+				user_list+='</div>';
+			
+				user_list+='<div class="tuijian_right">';
+				user_list+='<p class="tuijian_font">'+nickname+'<span class="font_666">(ID:'+uid+')</span></p>';
+				user_list+='<p class="tuijian_font">手机：1892890**62</p>';
+				user_list+='<p class="tuijian_font">级别：<span class="red">'+level+'</span></p>';
+				user_list+='<p class="tuijian_font">获得佣金：<span class="red">'+commission+'</span></p>';
+				user_list+='</div>';
+				user_list+='</div>';	
+			});
+			$('#user_tuijian').append(user_list);
+	 	}
+	 });
+</script>
+</body>
+</html>

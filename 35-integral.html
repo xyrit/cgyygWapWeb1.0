@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>积分兑换</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/user/business.css"/>
+</head>
+<body>
+<div class="container-fluid" > 
+		<div class="text_list" style="background:none;border:1px solid #efa904; width:95%;margin:15px auto;">
+					<p>
+						累计总积分<br/>
+						<font class="addup red">0</font>
+					</p>
+					<p>
+						已兑换积分<br/><font class="score_expense red">0</font>
+					</p>
+					<p>
+						剩余总积分<br/><font class="residue red">0</font>
+					</p>
+		</div>
+
+		<div class="padd_auto">
+			<div class="chengbiBox">
+				<img width="190px" src="images/cgb.png" />
+				<div class="jifen_ba">
+					&nbsp;&nbsp;200积分
+					<button class="duihuan" onclick="duihuan();"  type="button">立即兑换</button>
+				</div>
+				
+			</div>
+		</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/weixin_inc.js"></script><!--获取微信资料-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息未登陆-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script>
+var glo_score_remain;//用户积分
+function jifenList(){
+	$.ajax({
+		type:"post",
+		url:urlPost+"/ucenter/score_info",
+		data:{
+			user_token:user
+		},
+		dataType:'json',
+		success:function(data){
+			if(data['code']==200){
+				var score_total = data['score_total'];//累计总积分
+				var score_expense = data['score_expense'];//已兑换的积分
+				var score_remain = data['score_remain'];////剩余积分
+				glo_score_remain=score_remain;//用户剩余积分
+
+				if(score_total==null){
+					score_total=0;
+				}
+				if(score_expense==null){
+					score_expense=0;
+				}
+				if(score_remain==null){
+					score_remain=0;
+				}
+
+				if(parseInt(score_remain)<200){
+					$('.duihuan').attr("disabled","disabled");
+				}else{
+					$('.duihuan').attr("disabled","true");
+					$('.duihuan').css("background","#EFA904;");
+				}
+				$('.addup').text(score_total);//累计获得积分 赋值
+				$('.residue').text(score_remain);//剩余积分
+				$('.score_expense').text(score_expense);//已兑换积分
+			}else{
+				$('.duihuan').attr("disabled","disabled");
+				return; 
+			}
+		}
+	});
+}
+jifenList();//调用积分
+//兑换商品
+function duihuan(){
+	$.ajax({
+		type:"post",
+		url:urlPost+"/ucenter/score_exchange",
+		data:{
+			user_token:user,
+			score_remain:glo_score_remain
+		},
+		dataType:'json',
+		success:function(data){
+			if(data['code']==200){
+				var score = data['score'];//剩余积分积分
+				var coin  = data['coin'];//兑换橙果币
+				tanchuan_0('恭喜兑换成功啦！','success','确定');
+				jifenList();//调用积分信息
+			}else{
+				tanchuan_0(data['info'],'success','确定');
+			}
+		}
+	});
+}	
+</script>
+</body>
+</html>

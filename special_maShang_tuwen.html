@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商品详情-图文详情</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/><!--为了防止苹果手机自动把数字变成号码导致样式失效-->
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/flexslider.css"/><!--轮播-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"/><!--alert弹窗-->
+</head>
+<body>
+<div class="container-fluid padding-b-10">
+        
+        <!--商品详情图文详情-->
+        <div class="goods-det-img" id="content">
+           <div class="loading"></div>
+           <!--<h4 class="fz_15px">不完美—轻易不说完美</h4>
+              <p class="text-gray lg_20px">
+                我们用多年的洞察审视用户需求，能发现不完美；我们用行动逼近极致，
+                却承认不完美；我们用诚实去打动消费者，所以敢直言不完美。
+                这是我们经历这 12 年的改变和坚持，重新发现自我，
+                打磨出的全新高端产品。 魅族选择的变与不变，凝聚于此
+              </p>
+           <img src="images/good-img-1.jpg" alt="" class="img-responsive center-block">
+           <h4 class="fz_15px">更好用的 5.7 英寸 1080P 屏幕</h4>
+             <p class="text-gray lg_20px">
+                5.7 英寸的 AMOLED 显示屏，更大视野给予更多内容；
+                AMOLED 独有的省电，给予更久的续航表现。
+                是的，魅族并没有选择飙参数去营造噱头，而是从用户实际体验出发。
+                重新调校的 AMOLED 屏幕采用了更加适合亚洲人喜好的偏冷色温。
+              </p>
+           <img src="images/good-img-2.jpg" alt="" class="img-responsive center-block">
+           <h4 class="fz_15px">比它的对手们，强多了</h4>
+              <p class="text-gray lg_20px"> 
+                 Exynos 7420 8 核 64 位处理器、8 核心 Mali-T760 图形渲染器，14nm 3D FinFET 
+                 制程工艺。更快更省电的 LPDDR4 内存、 UFS 2.0 闪存。这四者单列其一都是「让人窒息」
+                 的存在，魅族将它们强强整合在 PRO 5 上，加上更智能省电的 Sensor Hub，
+                 PRO 5 的性能表现傲视群雄。
+              </p>-->
+        </div>   
+     <!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+        
+</div>
+<!--返回顶部-->
+<a href="javascript:;" class="return_top position-ab">
+    <span class=" icon-arrow-up"></span>
+</a>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script defer src="js/jquery.flexslider-min.js"></script><!--轮播-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/data_list/special/special_tuwen.js"></script>
+<script src="js/sweetalert-dev.js"></script>
+<script>
+$(function(){
+	 
+	 //$('#footer').load('footer.html');//加载底部区域
+	 /*出现回到顶部按钮*/
+	  $(".return_top").hide();
+	  $(window).scroll(function () {
+		  if ($(this).scrollTop() > 900) {
+			  $(".return_top").stop().show().animate({ bottom: '100px' }, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  
+		  }
+		  else {
+			  
+			  $(".return_top").stop().animate({ bottom: '-200px'}, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  }
+		  
+	  });
+	  //返回顶部
+	  $('.return_top').click(function () {
+		  $('body,html').animate({ scrollTop: 0 }, 500);
+		  $(".return_top").animate({ bottom: '-200px', opacity: '1' }, 500);
+		  return false;
+	  });
+	 
+})
+</script>
+</body>
+</html>

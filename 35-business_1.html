@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>邀请有奖</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/user/business.css"/>
+</head>
+<body>
+	<div class="zhezhao_box">
+		<div class="yindao_img"><img src="images/yindao.png"></div>
+		<div class="yindao_button">
+			<a href="javascript:history.go(-1);">返回上一页</a>
+			<a href="index.html">返回首页</a>
+		</div>
+	</div>
+	
+	<div class="busin_img"><img src="images/u394.png" width="100%" alt='推荐有奖 橙果云购'></div>
+<div class="container-fluid" > 
+	<div class="padd_auto">
+		<p class="text_tite">规则说明</p>
+		<p class="text_center">1.用户B通过A分享的连接注册后成为A的一级，用户B购买商品后，用户A获得佣金</p>
+		<p class="text_center">2.用户C通过B分享的连接注册后成为B的一级，A的二级，用户C购买商品后，A和B都可以获得各自的佣金</p>
+		<p class="text_center">3.用户D通过C分享的连接注册后成为C的一级，B的二级，与A无关</p>
+		
+   		<button id="click_fenxian" type="button" class="top_nav btn btn-lg btn-block land_la">邀请好友</button>		
+	</div>
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/weixin_inc.js"></script><!--获取微信资料-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息未登陆-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script type="text/javascript">
+	 $('#click_fenxian').click(function(){
+	 	$('.zhezhao_box').show();
+	 });
+	 $('.zhezhao_box').click(function(){
+	 	$(this).hide();
+	 });
+</script>
+</body>
+</html>

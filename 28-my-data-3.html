@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的资料_修改手机号码   </title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+</head>
+<body>
+<div class="container-fluid"> 
+<div class="container-fluid-pastannounce">
+      <div class="d_number row">
+               <p class="nullmobile" style="text-align: center;display:none">您还没有绑定手机<a href="28-my-data-3_1.html" style="color: #0066FF;">立马去绑定</a></p> 
+                <div style="padding: 10px;" class="d_m_control position-re">
+                	<div class="cheke_1">
+	                     <input  type="text" id="userMobil" disabled="disabled" style="margin-bottom: 15px;" maxlength="11"  class="form-control" value=""/>
+	                     <div style="width:100%">
+	                     	<input  type="text" id="yanzhen_xg" style="width:50%;float: left;margin-bottom: 15px;" maxlength="4" placeholder="请输入验证码" class="form-control" value=""/>
+	                     	<a id="Posyanzhen" href="javascript:;" style="float:right;border-radius: 3px;color: #fff; display:block;width:100px;text-align: center;line-height: 33px; height: 33px;background: #ff4800;" class="w-button" id="pro-view-6">获取验证码</a>
+	                     </div>
+	                </div> 
+	                <div class="cheke_2" style="display: none;">
+	                     <input  type="text" id="userMobil3" style="margin-bottom: 15px;" maxlength="11" placeholder="请输入新的手机号码" class="form-control" value=""/>
+		              	 <div style="width:100%">
+	                     	<input  type="text" id="yanzhen_xg2" style="width:50%;float: left;margin-bottom: 15px;" maxlength="4" placeholder="请输入验证码" class="form-control" value=""/>
+	                     	<a id="Posyanzhen2" href="javascript:;" style="float:right;border-radius: 3px;color: #fff; display:block;width:100px;text-align: center;line-height: 33px; height: 33px;background: #ff4800;" class="w-button" id="pro-view-6">获取验证码</a>
+	                     </div>
+	                </div>    
+		              	 <button id="mo_xiug" type="button" class="top_nav btn btn-lg btn-block land_la">验证</button>	
+		              	 <button style="display: none;" id="mo_xiug2" type="button" class="top_nav btn btn-lg btn-block land_la">修改</button>	
+                </div>
+     <!--底部菜单-->
+      	<div id="footer"></div>
+    <!--底部菜单-->
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息-->
+<script src="js/jquery.easing.js"></script>
+<script src="js/user/user_mobile.js"></script><!--修改手机号码-->
+<script>
+	if($('#userMobil').val()==''){
+		$('.nullmobile').show();
+	}
+</script>
+
+</body>
+</html>

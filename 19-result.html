@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>支付结果</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+</head>
+<body>
+<div class="container-fluid"> 
+<div class="container-fluid-pastannounce">
+        <!--参与成功-->
+        <div class="Success-title row">
+             <div class="Success-h4 fz_16px">参与成功，请等待系统为您揭晓！</div>
+             <div class="Success-icon">  
+                   <button class="btn btn-default Success-icon_1" type="submit" onClick="location.href='index.html'">继续参与</button>
+                   <button class="btn btn-default Success-icon_2" type="submit" onClick="location.href='21-Part_record.html'">查看参与记录</button>
+             </div>
+        </div>
+        
+        <div id="canyuPay">
+        	<div class="Success-details row"><span class="lg_22px">您成功参与了<span id="goodsopt" class="text-red">0</span>件商品，信息如下：</span></div>
+        
+        	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">您的幸运码为：</h4>
+      </div>
+			      
+			      <div style="word-break: break-all;word-wrap: break-word;" id="ceshi" class="modal-body" style="width:100%;">
+			        
+			      </div>
+			      
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+			        
+			      </div>
+			    </div>
+			  </div>
+			</div>
+        </div>
+     
+     <div id="tishi_text" style="text-align: center;padding: 25px 0px;display: none;">
+     	您本次的交易已经完成<a href="index.html">&nbsp;去首页</a>
+     </div>
+        
+        
+        <!--底部菜单-->
+      	<div id="footer"></div>
+     <!--底部菜单-->
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/goods/result.js"></script>
+<script>
+ $(function(){
+	/* center modal 模态框居中*/
+	centerModals();
+	$(window).on('resize', centerModals); 
+})
+</script>
+</body>
+</html>

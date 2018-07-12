@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>晒单分享-晒单详情</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/><!--为了防止苹果手机自动把数字变成号码导致样式失效-->
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/flexslider.css"/><!--轮播-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"/><!--alert弹窗-->
+</head>
+<body>
+<div class="container-fluid padding-b-10"> 
+<div class="container-fluid-pastannounce">
+	    <!--头像内容信息-->
+        <div class="issue_List">
+            <div class="issue_content_sun row">
+                 <div class="issue_content_publish  margin-l-r-0">
+                     <div class="col-md-3 col-sm-3 col-xs-3 issue_content_publish_1 text-center">
+                        <a href="javascript:;" id="userImg">
+                           <!--<img class="img_publish" src="images/tx.png">-->
+                        </a>
+                     </div>
+                     <div class="col-md-9 col-sm-9 col-xs-9 issue_content_publish_2">
+                         <p class="fz_15px lg_22px">获奖者：
+                             <a href="javascript:;" id="userName">
+                                <span class="text-skyblue"></span>
+                             </a>
+                             <span class="text-gray" id="userIp"></span>
+                         </p>
+                         <p class="lg_22px">用户ID：<span id="userId"></span><span class="text-gray">（唯一不变标识）</span></p>
+                         <p class="lg_22px">期号：<span id="lotteryId"></span></p>
+                         <p class="lg_22px">获奖幸运码：<span class="text-red" id="lotteryCode"></span></p>
+                         <p class="lg_22px">本期参与：<span class="text-red" id="attendCount"></span>人次</p>
+                         <p class="lg_22px">揭晓时间：<span id="lotteryTime"></span></p>
+                    </div>
+                 </div>
+                     
+              </div>
+        </div>
+        <!--晒单分享内容-->
+        <div class="sun-det">
+           <h4 class="fz_16px" id="dis_title"></h4>
+           <span class="text-gray sun-det-time" id="dis_time"></span>
+           <p class="lg_22px" id="dis_content">
+               
+           </p>
+           <div class="sun-det-imgbg" id="dis_img">
+             
+           </div>
+        </div>
+
+
+        <!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+</div>
+</div>
+<!--返回顶部-->
+<a href="javascript:;" class="return_top position-ab">
+    <span class=" icon-arrow-up"></span>
+</a>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/data_list/wei-dis_shareInfo.js"></script>
+<script src="js/sweetalert-dev.js"></script>
+<script src="js/public/date-transite.js"></script>
+<script>
+$(function(){
+	 //$('#footer').load('footer.html');//加载底部区域
+	 /*出现回到顶部按钮*/
+	  $(".return_top").hide();
+	  $(window).scroll(function () {
+		  if ($(this).scrollTop() > 900) {
+			  $(".return_top").stop().show().animate({ bottom: '100px' }, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  
+		  }
+		  else {
+			  
+			  $(".return_top").stop().animate({ bottom: '-200px'}, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  }
+		  
+	  });
+	  //返回顶部
+	  $('.return_top').click(function () {
+		  $('body,html').animate({ scrollTop: 0 }, 500);
+		  $(".return_top").animate({ bottom: '-200px', opacity: '1' }, 500);
+		  return false;
+	  });
+})
+</script>
+</body>
+</html>

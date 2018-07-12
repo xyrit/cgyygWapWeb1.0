@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>佣金消费</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/user/business.css"/>
+</head>
+<body>
+<div class="container" > 
+
+			<div class="text_font">
+				<div class="text_flolet">
+					<p>获得佣金</p>
+					<font class="red">(&nbsp;</font><span class="red sumcommission">0</span><font class="red">&nbsp;)</font>
+				</div>
+
+				<div class="text_flolet">
+					<p>提现金额</p>
+					<font class="red">(&nbsp;</font><span class="red sumconsumption">0</span><font class="red">&nbsp;)</font>
+				</div>
+
+				<div class="text_flolet">
+					<p>转账金额</p>
+					<font class="red">(&nbsp;</font><span class="red withdraw_user">0</span><font class="red">&nbsp;)</font>
+				</div>
+
+				<div class="text_flolet">
+					<p>消费佣金</p>
+					<font class="red">(&nbsp;</font><span class="red sumconsumption">0</span><font class="red">&nbsp;)</font>
+				</div>
+			</div>
+
+			<!-- <a style="width:96%;border:1px solid #ccc;line-height:32px;color:#666;" class="cgButton2" href="javascript:suanfa();">佣金算法</a> -->
+			
+			<div class="padd_auto">
+			<div class="yongjian_box">
+				<img src="images/yongjin.png" alt="佣金"/>
+				<p style="padding: 0;margin: 0;font-size: 16px;">剩余可用佣金</p>
+				<p style="margin: 0;font-size: 18px;" class="red">￥<font class="remain">0.00</font></p>
+			</div>
+			
+			<a href="35-transfer.html" class="cgButton" href="javascript:;">转账</a>
+			
+			<a href="35-withdraw.html" class="cgButton2" href="javascript:;">提现</a>
+			
+			<span class="font_666 tite">规则说明：</span>
+			<p class="font_666">
+				1.佣金转账到帐号，只需整数即可转账，无需审核<br/>
+				2.佣金提现到银行卡，需满100元才可以提现，需要等待审核（审核时间10~15个工作日）
+			</p>
+			
+			<a style="font-size:12px;color:#ff4800;border:none;line-height:32px;" class="cgButton2" href="35-xiaofeiList.html">查看消费明细</a>
+			
+		</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/weixin_inc.js"></script><!--获取微信资料-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息未登陆-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script>
+	$.ajax({
+		type:"post",
+		url:urlPost+"/Commission/countcommission",
+		data:{
+			user_token:user
+		},
+		dataType:'json',
+		success:function(data){
+			var sumcommission = data['list']['sumcommission'];//累计佣金
+			var withdraw_bank = data['list']['withdraw_bank'];//提现到账
+			var withdraw_user = data['list']['withdraw_user'];//转账
+			var sumconsumption= data['list']['sumconsumption'];//累计消费佣金
+			var remain 		  = data['list']['remain'];//可用佣金
+			$('.sumcommission').text(sumcommission);
+			$('.withdraw_bank').text(withdraw_bank);
+			$('.withdraw_user').text(withdraw_user);
+			$('.sumconsumption').text(sumconsumption);
+			$('.remain').text(remain);
+		},
+	});
+</script>
+</body>
+</html>

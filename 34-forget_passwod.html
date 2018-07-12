@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>找回密码</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+</head>
+<body>
+<div class="container-fluid"> 
+<div class="container-fluid-pastannounce">
+        
+		<!--手机验证码-->
+       <div id="zhaopasschek" class="Land">
+        	<form id="Forchekemobile" method="post">
+             <div class="textpass1">
+	             <input type="text" id="Formobile" maxlength="11" name="mobile" class="form-control" placeholder="手机号码">
+	              <img style="height: 40px;" id="ForimgcaptchaBox" src=""/>
+	              <a id="Forclick_qhimg2" href="javascript:;">换一换</a>
+	              <input style="width:48%;" type="text" id="Forimgverify" name="captcha" class="form-control" placeholder="图形验证码：">
+	             <input style="width:48%;" type="text" id="ForRegverify" name="verify" class="form-control" placeholder="手机验证码">
+	              <input type="button" onclick="sendMessage()" class="click_style" id="Forpostverify" value="发送验证码">
+				<input id="Formobile_tokenMd5" type="hidden" value="" />
+             </div>
+			
+			<div class="textpass2">
+				<input type="password" id="ForRegpassword" name="password" class="form-control" placeholder="密码"/>
+              	<input type="password" id="ForRegrepassword" name="repassword" class="form-control" placeholder="确认密码"/>
+			</div>
+              
+              
+              <button id="ForRegister_mobile" type="button" class="btn btn-lg btn-block land_la">确认</button>
+            </form>  
+        </div>
+       
+       
+       
+        <!--输入密码-->
+        <div id="zhaopasswod" class="Land" style="display:none;">
+        	<form id="zhucete" method="post">
+        	  <input type="hidden" id="hidemobile" name='mobile' value="" />
+              <input type="password" id="Forpassword" name="password" class="form-control" placeholder="输入新密码">
+              <input type="password" id="Forrepassword" name="repassword" class="form-control" placeholder="确认密码">
+              <button id="ForRegister" type="submit" class="btn btn-lg btn-block land_la">提交修改</button>
+            </form>  
+        </div>
+
+        <!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/jquery.md5.js"></script><!--md5加密-->
+<script src="js/user/forget_passwod.js"></script><!--注册验证-->
+</body>
+</html>

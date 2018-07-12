@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>充值</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+</head>
+<body>
+<div class="container-fluid"> 
+<div class="container-fluid-pastannounce">
+               
+                <!--充值内容-->
+                <div class="rch_title  row">
+                    <span class="padding-l-r-1">账户余额：<span class="text-red">0.00</span>&nbsp;橙果币</span>
+                </div>
+                    <div class="g-Recharge">
+                       <ul id="ulOption" class="clearfix">
+                           <li class="z-sel">
+                               <a href="javascript:;" class="z-sel  position-re ">50元<s></s></a>
+                            </li>
+                           <li class="z-sel ">
+                               <a href="javascript:;" class="z-sel position-re">100元<s></s></a>
+                           </li>
+                           <li class="z-sel">
+                               <a href="javascript:;" class="z-sel position-re">200元<s></s></a>
+                            </li>
+                            <li class="z-sel">
+                               <a href="javascript:;" class="z-sel position-re">300元<s></s></a>
+                            </li>
+                           <li class="z-sel">
+                               <a href="javascript:;" class="z-sel position-re">500元<s></s></a>
+                           </li>
+                           <li class="z-sel">
+                               <a href="javascript:;" class="z-sel position-re">1000元<s></s></a>
+                            </li>
+                               	<input name="moni" id="qitamoni" class="monitex form-control" placeholder="其他金额" value=""/><s></s>
+                       </ul>
+                </div>
+                <!--<div id="payment">
+	                <div class="rch_inco position-re row">
+	                       <label class="radio-inline">
+	                           <input type="radio" name="radio"  value="1" class="Total_r_i" checked>
+	                       </label>
+	                       <span class="padding-l-r-1 lg_20px">支付宝</span>
+	                 </div>
+	                 <div class="rch_inco position-re row">
+	                       <label class="radio-inline">
+	                           <input type="radio" name="radio"  value="2" class="Total_r_i">
+	                       </label>
+	                       <span class="padding-l-r-1 lg_20px">微信支付</span>
+	                </div>
+	            </div>    -->
+                <button type="button" class="btn btn-lg btn-block rec_inco" onClick="chekice();">确认支付</button>
+
+    <!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/user/user_Recharge.js"></script><!--充值-->
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我要晒单</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<style type="text/css">
+  .glyphicon{
+    font-size: 18px;
+  }
+</style>
+</head>
+<body>
+<div class="container-fluid"> 
+<div class="container-fluid-pastannounce">
+        	    <!--晒单分享标题-->
+        <div class="w_sun">
+           <input type="text" id="order_tite" class="form-control w_sun_1" placeholder="请输入晒单标题">
+           <textarea id="textconder" class="form-control" rows="3" placeholder="请输晒单内容"></textarea>
+           <div class="sun_share_det">
+			<pre style="display:none" id="console"></pre>	
+              	<div id="container">
+						<a style="margin-right: 10px;color: #fff;" id="selectfiles2" href="javascript:void(0);" class='btn'>选择图片</a>
+						<a style="color: #fff;" id="postfiles2" href="javascript:void(0);" class='btn'>开始上传</a>
+				</div>
+				<div style="height:auto;border-radius: 5px;overflow: hidden;padding: 5px 35px;width:100%;" id="ossfile">
+					你的浏览器不支持flash,Silverlight或者HTML5！
+					
+				</div>
+           </div>
+           <br/>
+           <div>您还可以上传<span id="numtextimg" style="color:red">&nbsp;5&nbsp;</span>张照片</div>
+           <button id="shaidanBut" type="button" class="btn btn-primary btn-lg btn-block Sign_out">提交申请</button>
+           
+        </div>
+        
+        <!--晒单分享内容-->
+         
+        <!--底部菜单-->
+      	<div id="footer"></div>
+     <!--底部菜单-->
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/upload_img/Math.uuid.js"></script>
+<script src="js/upload_img/plupload.full.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/user/user_Bask.js"></script><!--晒单-->
+</body>
+</html>

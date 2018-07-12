@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>确认支付</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/flexslider.css"/><!--轮播-->
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<style>
+	.goodsImg{
+		float: left;
+		width: 100%;
+		overflow: hidden;
+		padding: 10px 5px;
+	}
+	.goodsImg a{
+		display: block;
+		width: 100%;
+	}
+	.goodsImg a img{
+		width: 50px;
+		height: 50px;
+		float: left;
+	}
+	
+	.goodsImg a span{
+		float: left;
+		line-height: 45px;
+		
+	}
+</style>
+</head>
+<body>
+<div class="container-fluid"> 
+<div class="container-fluid-pastannounce">
+               
+        <!--内容-->
+        <div class="conf">
+        	
+        	
+        	<!--订单信息-->
+        	<div id="payShopingList">
+        		
+        		
+        		
+        	</div>
+			<!--订单信息-->
+               <div class="Total position-re row">
+                   <span class="padding-l-r-1"></span> 
+                   <span class="position-ab issue_nm padding-l-r-1 fz_15px">商品合计：<span class="text-red" id="payNumtext">0</span>&nbsp;橙果币</span>
+               </div>
+               <div class="conf_dropdown position-re row" style="display:none">
+                   <div class="dropdown padding-l-r-1 drp_title">
+                          <button class="btn btn-default dropdown-toggle drp_redbox fz_13px" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            1元红包
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu fz_13px" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">10元红包</a></li>
+                            <li><a href="#">50元红包</a></li>
+                            <li><a href="#">100元红包</a></li>
+                          </ul>
+                   </div> 
+                   <span class="position-ab icon-box padding-l-r-1 fz_15px">
+                        <label class="checkbox-inline">
+                              <input type="checkbox"  value="option1"> 
+                       </label>
+                   </span>
+               </div>
+               <div class="Total position-re row">
+                   <span class="padding-l-r-1 lg_20px">余额支付（<span id="userAccount" class="text-red"></span>橙果币）</span>
+                   <span class="position-ab Marquee padding-l-r-1 fz_15px">
+                       <label class="checkbox-inline">
+                              <input type="checkbox" name='yuer' id="inlineCheckbox1" value=""> 
+                       </label>
+                   </span>
+               </div>
+               <div class="Total position-re row">
+                   <span class="padding-l-r-1 lg_20px">其他方式支付（需支付：<span id="goodsMoney" class="text-red"></span>&nbsp;元）</span>
+                   <span class="position-ab Marquee padding-l-r-1 fz_15px">
+                       <!--<label class="checkbox-inline">
+                              <input type="checkbox" value="option1"> 
+                       </label>-->
+                   </span>
+               </div>
+               <!--<div class="Total position-re row">
+                   <label class="radio-inline">
+                       <input type="radio" name="radio"  value="option3" class="Total_r_i" checked>
+                   </label>
+                   <span class="padding-l-r-1 lg_20px">支付宝</span>
+               </div>
+               <div class="Total position-re row">
+                   <label class="radio-inline">
+                       <input type="radio" name="radio"  value="option3" class="Total_r_i">
+                   </label>
+                   <span class="padding-l-r-1 lg_20px">微信支付</span>
+               </div>-->
+       </div>
+       <button type="button" class="btn btn-lg btn-block conf_icon_1" onClick="payMoney();">确认支付</button>
+     
+     	
+     <!--底部菜单-->
+      	<div id="footer"></div>
+     <!--底部菜单-->
+</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/goods/payShoping.js"></script>
+<script src="js/user/user_token_inc.js"></script>
+<script src="js/jquery.json.min.js"></script>
+</body>
+</html>

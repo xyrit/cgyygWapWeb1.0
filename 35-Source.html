@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>佣金来源</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/user/business.css"/>
+</head>
+<body>
+<div class="container" > 
+	<div class="chuanye_index">
+		<div class="cente_box">
+			
+			<div class="text_font">
+				<div class="text_flolet">
+					<p>邀请好友</p>
+					<font class="red">(&nbsp;</font><span id="count_num" class="red">0</span><font class="red">&nbsp;)</font>
+				</div>
+
+				<div class="text_flolet">
+					<p>一级消费</p>
+					<font class="red">(&nbsp;</font><span class="red" id="onecommission">0</span><font class="red">&nbsp;)</font>
+				</div>
+
+				<div class="text_flolet">
+					<p>二级消费</p>
+					<font class="red">(&nbsp;</font><span class="red" id="towcommission">0</span><font class="red">&nbsp;)</font>
+				</div>
+
+				<div class="text_flolet">
+					<p>累计佣金</p>
+					<font class="red">(&nbsp;</font><span class="red" id="sumcommission">0</span><font class="red">&nbsp;)</font>
+				</div>
+			</div>
+			<a style="font-size:12px;color:#ff4800;border:none;line-height:32px;" class="cgButton2" href="javascript:suanfa();">查看佣金算法</a>
+			<div class="sousuo_box">
+				<input class="user_idInput" type="text" name="sousuo" placeholder="请输入好友ID" value=""/>
+				<a href="javascript:sousuo();" class="icon-search sso_inc"></a>
+			</div>
+		</div>
+		
+		<div id="user_soulist">
+			<div class="loading"></div>
+		</div>
+		<a id='jiazai_font' class='addList' href="javascript:addList();">加载更多</a>
+	</div>
+</div>
+<!--佣金明细弹窗-->
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel2" style="text-align: center;">佣金计算方式</h4>
+      </div>
+      <div class="modal-body">
+         <div class="weixin_img_tishi">
+        	<p>1.一级好友消费金额的4%做为佣金，二级好友消费金额的2%做为佣金</p>
+        	<p>2.累计获得佣金=一级好友佣金+二级好友佣金</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/weixin_inc.js"></script><!--获取微信资料-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息未登陆-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/start/Source.js"></script>
+<script>
+	function suanfa(){
+	$('#myModal3').modal('toggle');
+}
+</script>
+</body>
+</html>

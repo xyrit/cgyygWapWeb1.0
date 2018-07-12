@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的银行卡</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/user/business.css"/>
+</head>
+<body>
+<div class="container" > 
+	<div class="chuanye_index">
+		<div class="cente_box">
+			<div class="text_list" style="height: 35px;line-height: 15px;">
+				<p style="width:100%">
+					已保存<span class="red payNum">2</span>张，还能保存<span class="red payMoren">0</span>张
+				</p>
+			</div>
+		</div>
+		
+		<!--银行卡-->
+		<div class="yinhka_box">
+			<div class="loading"></div>
+		</div>
+
+		<div class="padd_auto">
+		<div class="pay_list">
+			<div class="pay_imgBox">
+				<a href="35-addPay.html" class="add_payClick glyphicon glyphicon-plus" href="javascript:;">添加银行卡</a>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/weixin_inc.js"></script><!--获取微信资料-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息未登陆-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script>
+var payMoren;
+var payNum;//当前银行卡的总张数
+function payList(){
+	$.ajax({
+		type:"post",
+		url:urlPost+"/Commission/member_banks",
+		data:{
+			user_token:user
+		},
+		beforeSend:function(){
+			$('.loading').show();
+		},
+		dataType:'json',
+		success:function(data){
+			$('.loading').hide();
+			var list = data['list'];
+			payNum=list.length;
+			if(payNum>=3){
+				$('.padd_auto').hide();
+			}
+			if(payNum){
+				payMoren=3-payNum;
+			}else{
+				payMoren=3;
+			}
+			$('.payMoren').text(payMoren);
+			$('.payNum').text(payNum);
+			
+			var payList='';
+			$.each(list, function(k,v) {
+				var bank_name = list[k]['bank_name'];//银行名称
+				var bank_code = list[k]['bank_code'];//银行账户
+				var id 		  = list[k]['id'];//银行卡id
+				payList+='<div class="pay_list">';
+				payList+='<div class="pay_imgBox">';
+				payList+='<div class="pay_img">';
+				
+
+				if(bank_name.indexOf('招商银行')!=-1){
+
+					payList+='<img src="images/zhaoshan.png"/>';
+
+				}else if(bank_name.indexOf('工商银行')!=-1){
+
+					payList+='<img style="margin-top:8px;" src="images/gongshan.png"/>';
+
+				}else if(bank_name.indexOf('建设银行')!=-1){
+
+					payList+='<img style="margin-top:8px;" src="images/jianshen.png"/>';
+					
+				}else if(bank_name.indexOf('农业银行')!=-1){
+
+					payList+='<img style="margin-top:8px;" src="images/nongye.png"/>';
+				}
+
+				payList+='<a href="javascript:remopay('+id+');" class="remove_payka icon-remove"></a>';
+				payList+='<p class="yingangka_font">'+bank_code+'</p>';
+				payList+='</div>';
+				payList+='<a class="xiugai_pay" href="35-revamp.html?id='+id+'">修改</a>';
+				payList+='</div>';
+				payList+='</div>';
+			});
+			$('.yinhka_box').append(payList);
+		}
+	});
+}
+payList();
+
+
+	//删除银行卡
+function remopay(id){
+	  swal({
+      title: '您确认删除此银行卡吗？',
+      type: 'error',
+      showCancelButton: true,
+      confirmButtonColor: "#ff4800",
+      confirmButtonText: '确定',//成功按钮
+      cancelButtonText:'取消',//取消按钮 
+      closeOnConfirm: false 
+    },function(){
+      $.ajax({
+			type:"post",
+			url:urlPost+"/Commission/member_banksdel",
+			data:{
+				id:id,
+				user_token:user
+			},
+			dataType:'json',
+			success:function(data){
+				if(data['code']==200){
+					tanchuan_0('删除成功','error','确定');
+					$('.yinhka_box').html('');
+					payList();
+				}else{
+					tanchuan_0(data['info'],'error','确定');
+				}
+			}
+		});
+  });
+}
+</script>
+</body>
+</html>

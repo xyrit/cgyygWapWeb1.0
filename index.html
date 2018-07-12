@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>橙果云购-首页</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/><!--为了防止苹果手机自动把数字变成号码导致样式失效-->
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/flexslider.css"/><!--轮播-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"/><!--alert弹窗-->
+</head>
+<body> 
+ <!--滑动组件-->
+		<section class="slider">
+          <div class="flexslider">
+            <ul class="slides" id="slides">
+              <div class="loading"></div>
+              <!--<li><img src="images/kitchen_adventurer_cheesecake_brownie.jpg"/></li>-->
+            </ul>
+          </div>
+        </section>
+<div class="container-fluid">
+       
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            
+               <div class="form-group position-re" style="height:34px">
+                  <input type="text" class="form-control" placeholder="请输入搜索内容" id="search_input">
+                  <a href="javascript:;" class="search-btn position-ab display-b" id="btn_search">
+	                  <span class="icon-search display-b">
+	                  </span>
+                  </a> 
+               </div><!-- /input-group -->
+            </div>
+            <!--<div class="col-md-2 col-sm-2 col-xs-3">
+              <a href="#">
+                   <div class="signin">
+                      <span class="icon-calendar"></span>
+                      签到
+                   </div>
+               </a>
+            </div>-->
+        </div>
+        <!--最新揭晓-->
+        <div class="commonTitle position-re">
+           <a href="13-new-annou.html" class="new_title fz_16px display-b">
+             <span class="">最新揭晓</span>
+             <span class="icon-angle-right position-ab icon-right"></span>
+           </a>
+        </div>
+        <div class="clearfix new-publish">
+           <div class="col-md-12 col-sm-12 col-xs-12 index_user" id="new_publish">
+              <div class="loading"></div>
+              <!--<div class="col-md-4 col-sm-4 col-xs-4 new-publish-list text-center">
+                 <a href="8_goods-ing - adving.html">
+                     <div><img src="images/1_03.jpg"></div>
+                 </a>
+                 <a href="8_goods-ing - adving.html">
+                 <p class="fz_12px">恭喜用户<span class="text-red">昵称七454545</span>获得</p>
+                 </a>
+              </div>-->
+              
+          </div> 
+        </div>
+        <!--公告-->
+        <!--<div class="well indexNotice-well">
+           <span class="icon-bullhorn"></span>
+           11月11日<a href="36-persona_ck.html" class="text-blue">用户名称七个字</a>1人次获得  商品标题商品...
+        </div>-->
+	    <!--商品列表-->
+	    <div class="orderList margin-l-r-0">
+            <a href="javascript:;" class="orderList_item active position-re fz_16px" id="sort_hot" data-type="hot">最热</a>
+            <a href="javascript:;" class="orderList_item position-re fz_16px" id="sort_new" data-type="new">最新</a>
+            <a href="javascript:;" class="orderList_item position-re fz_16px" id="sort_fast" data-type="fast">最快揭晓</a>
+            <a href="javascript:;" class="orderList_item position-re fz_16px" id="sort_price" data-type="price" data-sort="desc">
+              总需人次
+              <span class="icon-angle-up"></span>
+              <span class="icon-angle-down"></span>
+            </a>
+        </div>
+        <div class="product">
+            <div class="productList clearfix position-re" id="productList">
+                <div class="loading"></div>
+                
+                <!--<li class="productList_item position-re">
+                    <div class="goodsBox clearfix">
+                       <a href="8_goods-ing - adving.html">
+                            <img src="images/1_03.jpg">
+                       </a>
+                       <a href="8_goods-ing - adving.html">
+                            <p class="pContent">Apple MacBook Pro 15.4英寸笔记本英寸笔记本英寸笔记本英寸笔记本英寸笔记本英寸笔记本</p>
+                       </a>
+                       <div class="padding-l-r-0 clearfix">
+                         <p class="Surplus nomargin">剩<span class="text-red">10840</span>人次</p>
+                         <div class="progress productList-progress indexProgress pull-left">
+                            <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                              <span class="sr-only">60% Complete (warning)</span>
+                            </div>
+                          </div>
+                          <div class="car pull-left position-ab">
+                              <span class="icon-shopping-cart icon-car"></span>
+                          </div>
+                       </div>
+                    </div>
+                </li>-->
+            </div>
+            
+            <a href="javascript:;" class="loadingMore">点击加载更多</a>
+        </div>
+  
+      <!--底部文字-->
+        <div id="footer2"></div>
+      <!--底部文字-->
+
+
+     	<!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+
+        
+</div>
+<!--返回顶部-->
+<a href="javascript:;" class="return_top position-ab">
+    <span class=" icon-arrow-up"></span>
+</a>
+<!-- Modal 什么是橙果云购-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 10px;top: 5px;font-size: 30px;opacity: 1;color:#fff">
+                <span class="icon-remove-sign"></span>
+             <!--<span aria-hidden="true">&times;</span>-->
+             </button>
+            <img src="images/guide.jpg" style="width:100%;"/>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+ <img style="display:none" id="loadfont" src=''/>   
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery.flexslider-min.js"></script><!--轮播-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/sweetalert-dev.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/public/weixin_inc.js"></script><!--获取微信资料-->
+<script src="js/data_list/index_list.js"></script>
+<script src="js/goods/addShoping.js"></script><!--加入购物车-->
+<script src="js/data_list/search.js"></script><!--搜索-->
+<script>
+$(function(){
+  var ucenter_url = window.localStorage.ucenter_url;//跳转地址
+  $('#loadfont').attr('src',ucenter_url);//加载地址 论坛同步登陆
+     $('#footer').load('footer.html');//加载底部区域
+	   $('#footer2').load('footer_2.html');//加载底部文字
+	/*出现回到顶部按钮*/
+	$(".return_top").hide();
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 900) {
+			$(".return_top").stop().show().animate({ bottom: '100px' }, 300);
+			$(".return_top").css({ position: "fixed"});
+		
+		}
+		else {
+			
+			$(".return_top").stop().animate({ bottom: '-200px'}, 300);
+			$(".return_top").css({ position: "fixed"});
+		}
+		
+	});
+	//返回顶部
+	$('.return_top').click(function () {
+		$('body,html').animate({ scrollTop: 0 }, 500);
+		$(".return_top").animate({ bottom: '-200px', opacity: '1' }, 500);
+		return false;
+	});
+	/* center modal 模态框居中*/
+	centerModals();
+	$(window).on('resize', centerModals);
+})
+</script>
+</body>
+</html>

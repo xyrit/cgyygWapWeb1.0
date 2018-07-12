@@ -1,0 +1,341 @@
+@charset "utf-8";
+/* CSS Document */
+/***Hong***基础设置*******/
+*{ margin:0; padding:0}
+body{font-family:"微软雅黑" !important;font-size:12px;/*font-size: 1.2em; line-height:1.2;*/ /*font-size:12px; font-size: 1.2em;*//*1.4 × 10px = 14px */}
+ul,li{ list-style:none}
+ul, ol{ margin-bottom:0}
+h3{ font-size: 16px;}
+h4{ font-size:14px;/*1.4 × 10px = 14px*/ } 
+a:link{color:#333}
+a:hover{ text-decoration:none;}
+a:visited{ /*color:#ff4800; */text-decoration:none}
+a:active{color:#ff4800; text-decoration:none}
+.display-b{ display:block !important}
+.display-ib{ display:inline-block}
+/*定义padding和margin*/
+.padding-r-0{ padding-right:0}
+.padding-l-0{ padding-left:0}
+.padding-r-8{ padding-right:8px;}
+.padding-r-10{ padding-right:10px;}
+.padding-b-0{ padding-bottom:0px !important;}
+.padding-b-10{ padding-bottom:10px !important;}
+.padding-l-r-0{ padding-left:0; padding-right:0}
+.padding-t-b-6{ padding:6px 0}
+.padding-t-b-8{ padding:8px 0}
+.padding-l-r-5{ padding:0 5px;}
+.padding-l-r-3{ padding:0 3px;}
+.padding-r-3{ padding-right:3px;}
+.margin-l-r-0{ margin-left:0 !important; margin-right:0 !important}
+.margin-t-5{ margin-top:5px;}
+.margin-t-15{margin-top:15px;}
+.margin-b-5{ margin-bottom:5px;}
+.margin-r_8{ margin-right:-8px;}
+.margin-b-t-10{ margin:10px 0}
+.margin-center{ margin:0 auto;}
+.border-gray{ border:1px solid #e2e2e2}
+/**********amanda**********************/
+.margin-l-r-0{ margin-left:0; margin-right:0}
+.padding-l-r-1{ padding-left:10px; padding-right:10px}
+.nomargin{ margin:0 !important;}
+a:focus{ text-decoration:none}
+.link{ display:block;color:#666;text-decoration:none; /*font-size:1.2em;*/}
+.link:hover{ color:#ff4800; text-decoration:none;}
+.link_1{ color:#0066ff;text-decoration:none; /*font-size:1.2em;*/}
+/*.link_1:hover{ color:#666;text-decoration:none; font-size:1.2em;}*/
+.pContent{width:100%;overflow:hidden;text-overflow:ellipsis; -o-text-overflow:ellipsis;white-space:nowrap;}
+.padding-l-1{ padding-left:10px;}
+.text-skyblue{ color:#0066ff;}
+.All_p{line-height:10px;/*font-size:1.2em;*/}
+.fz_12px{font-size:12px;}
+.fz_10px{font-size:10px;}
+.fz_13px{font-size:13px;}
+.fz_14px{ font-size:14px;}
+.fz_15px{ font-size:15px;}
+.fz_16px{ font-size:16px;color: #666}
+.fz_p{font-size:12px;margin: 0px;line-height: 16px;}
+.fz_p_1{font-size:12px;line-height: 16px;margin: 0px;}
+.fz_p_2{font-size:12px;line-height:14px; margin: 0px;}
+.fz_p_3{font-size:12px;line-height:10px; margin: 0px;}
+.fz_p_4{font-size:11px;line-height: 14px}                                                                                                                                                                   
+/*.fz_p_3{font-size:1.2em;line-height:1.4em;}*/
+.lg_20px{ line-height:20px;margin: 0px;}
+.lg_22px{ line-height:22px;margin: 0px;}
+.lg_30px{ line-height:30px;margin: 0px;}
+
+.h3_p{ font-size:13px; margin-top: 8px;margin-bottom: 8px;}
+.h3{ font-size:13px; margin:0px; line-height:16px;}
+.fz_bl{ font-weight:bold}
+
+/*正在加载中*/
+/*.loading{ margin:0 auto; text-align:center; padding:10px 0;color: #8f8f8f;}
+.loading img{width:50px !important; height:50px !important;}*/
+
+.loading {
+	display:none;
+	width: 60px;
+	height: 60px;
+	background-color: #FFA737;
+	margin: 100px auto;
+	-webkit-animation: rotateplane 1.2s infinite ease-in-out;
+	animation: rotateplane 1.2s infinite ease-in-out;
+}
+ 
+@-webkit-keyframes rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+ 
+@keyframes rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+  } 50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+  } 100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+
+/*字体颜色*/
+.text-red{ color:#ff4800 !important}
+.text-blue{ color:#428BCA !important}                                                                                    
+.text-gray{ color:#999999}
+.text-gray2 { color: #909090 !important;}
+.text-m_line{ text-decoration:line-through}
+/*按钮*/
+.cg_btn_sm{
+	background: #ff4800;
+	border: none;
+	color: #fff;
+	border-radius: 5px;
+	padding: 4px 9px;
+}
+.btn.disabled, .btn[disabled] {
+	background-color: #aab2bd;
+	border-color: #aab2bd;
+}
+/*详情页加入购物车按钮*/
+.addToCart_btn{
+	background: #fff;
+	border: 1px solid #ff4800;
+	}
+
+/*返回顶部*/
+.return_top{ background:#ff4800; border-radius:50%; right:20px; padding:5px;bottom:100px; display:block; text-align:center; z-index: 99;display: none;
+}
+.return_top span{ color:#fff;  font-size:30px; display:block; width:32px; height:32px; }
+/*限制图片的高度*/
+.limit_height{ overflow:hidden;height:150px;}
+/*修改自带模态框*/
+.modal-body {
+    padding: 10px;
+}
+.modal-header{
+	padding: 10px;
+}
+.modal-header-2{
+	position: absolute;
+	width: 100%;
+	background-color: rgb(255, 255, 255);
+	z-index: 99;
+}
+.modal-dialog {
+    max-height: 600px;
+    /*overflow-y: auto;*/
+}
+
+/*定义高度*/
+.modal-dialog-2 {
+    height: 300px;
+    /*overflow: hidden;
+    overflow-y: auto;
+	position:relative;*/
+	/*width:auto;*/
+	width:250px;
+	margin:0 auto
+}
+
+/*参与码*/
+#luckyCode{
+	padding-top: 41px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	height: 300px;
+}
+/*修改自定义提示框*/
+
+.tooltip-inner{
+	background-color:#ff4800
+}
+.tooltip.top .tooltip-arrow{
+	border-top-color: #ff4800;
+}
+/*倒计时*/
+.cutDown{ margin:5px 0;display: inline;}
+.cutDown>span{ color:#ff4800}
+.cutDowm_em{font-style:normal; color:#767676}
+/*用户头像*/
+.userImg{
+	border-radius: 50%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+	overflow: hidden;
+}
+/*按钮选中时文字的颜色*/
+.active{
+	color:#ff4800 !important
+}
+/*查看他人参与记录中的 图片尺寸*/
+.img_publish{ max-width:100%;}
+/*占卜弹出框*/
+.modal-header_zhanbu{ border-bottom:none; height:50px}/*占卜头部*/
+#goodsPic{ margin-bottom:10px}
+#goodsPic img{ width:150px; max-height:150px;border: 1px solid #dbc790;}/*占卜图片*/
+.modal-dialog-zhanbu{ /*width:550px;*/ /*height:330px;*/}
+.modal-zhanbu-bg{ background-image:url(../images/zhanbu.jpg); background-size: 100% 100%;/*background-attachment: fixed;*/ background-repeat:no-repeat;/* height:330px;*/}
+button.close-zhanbu{ height:30px; width:30px; padding:5px; background-image:url(../images/close-zhanbu.png); background-repeat:no-repeat;opacity:0.5;position: absolute;right: 20px;top: 20px;z-index: 99;}
+button.close-zhanbu:hover{ opacity:1}
+.modal-zhanbu-footer{ text-align:center;margin: 0 10px 10px 10px;border: 2px solid #C7482E; position:relative;border-top:none;}
+.flower{ position:absolute; background-image:url(../images/flower.png); width:25px; height:25px;}
+.flow_left_top{ left:0; top:0;transform:rotate(270deg);-webkit-transform:rotate(270deg);-ms-transform:rotate(270deg);-o-transform:rotate(270deg);-moz-transform:rotate(270deg);}
+.flow_right_top{ right:0; top:0;}
+.flow_left_bottom{ left:0; bottom:0;transform:rotate(180deg);-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);-o-transform:rotate(180deg);-moz-transform:rotate(180deg);}
+.flow_right_bottom{ right:0; bottom:0;transform:rotate(90deg);-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);-moz-transform:rotate(90deg);}
+/*往期揭晓中的左边头像和右边文字的垂直居中 采用flex布局*/
+.flex_content{
+	display: -moz-box; /* Firefox */ 
+	display: -ms-flexbox; /* IE10 */ 
+	display: -webkit-box; /* Safari */ 
+	display: -webkit-flex; /* Chrome, WebKit */ 
+	display: box; 
+	display: flexbox; 
+	display: flex; 
+    width: 100%;  
+    height: 100%;
+
+	align-items: center;/*垂直居中*/
+}
+/*.text-red a,a.text-red{ color:#ff4800;}*/
+
+/*两列图片排列时 图片的等高显示*/
+.img_a{
+	height: 300px;
+    overflow: hidden;
+    max-height: 300px;
+}
+/*修改滚动条*/
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background-color:#fff;}
+::-webkit-scrollbar-thumb{background-color:#ccc;}
+::-webkit-scrollbar-thumb:hover {background-color:#ccc}
+::-webkit-scrollbar-thumb:active {background-color:#ccc}
+
+@media (max-width:480px){
+	.img_a{
+		height: 140px;
+		overflow: hidden;
+		max-height: 140px;
+	}
+	.limit_height{ overflow:hidden;height:80px;max-height: 80px;}
+	
+}
+@media (min-width:481px) and (max-width:720px){
+	.img_a{
+		height: 200px;
+		overflow: hidden;
+		max-height: 200px;
+	}
+	.limit_height{ overflow:hidden;height:120px;max-height: 120px;}
+	
+}
+@media (-webkit-max-width:480px){
+	.img_a{
+		height: 140px;
+		overflow: hidden;
+		max-height: 140px;
+	}
+	.limit_height{ overflow:hidden;height:80px;max-height: 80px;}
+	
+}
+@media (-webkit-min-width:481px) and (-webkit-max-width:720px){
+	.img_a{
+		height: 200px;
+		overflow: hidden;
+		max-height: 200px;
+	}
+	.limit_height{ overflow:hidden;height:120px;max-height: 120px;}
+	
+}
+@media (-moz-max-width:480px){
+	.img_a{
+		height: 140px;
+		overflow: hidden;
+		max-height: 140px;
+	}
+	.limit_height{ overflow:hidden;height:80px;max-height: 80px;}
+	
+}
+@media (-moz-min-width:481px) and (-moz-max-width:720px){
+	.img_a{
+		height: 200px;
+		overflow: hidden;
+		max-height: 200px;
+	}
+	.limit_height{ overflow:hidden;height:120px;max-height: 120px;}
+	
+}
+@media (-o-max-width:480px){
+	.img_a{
+		height: 140px;
+		overflow: hidden;
+		max-height: 140px;
+	}
+	.limit_height{ overflow:hidden;height:80px;max-height: 80px;}
+	
+}
+@media (-o-min-width:481px) and (-moz-max-width:720px){
+	.img_a{
+		height: 200px;
+		overflow: hidden;
+		max-height: 200px;
+	}
+	.limit_height{ overflow:hidden;height:120px;max-height: 120px;}
+	
+}
+@media (-ms-max-width:480px){
+	.img_a{
+		height: 140px;
+		overflow: hidden;
+		max-height: 140px;
+	}
+	.limit_height{ overflow:hidden;height:80px;max-height: 80px;}
+	
+	
+}
+@media (-ms-min-width:481px) and (-moz-max-width:720px){
+	.img_a{
+		height: 200px;
+		overflow: hidden;
+		max-height: 200px;
+	}
+	.limit_height{ overflow:hidden;height:120px;max-height: 120px;}
+	
+}
+
+/*@media (min-width:768px) {
+	.modal-dialog {
+		width:600px;
+		margin:30px auto
+	}
+	
+	
+}
+@media (min-width:992px) {
+	.modal-dialog{
+		width:900px
+	}
+}*/

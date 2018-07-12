@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商品详情-往期揭晓</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/><!--为了防止苹果手机自动把数字变成号码导致样式失效-->
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/flexslider.css"/><!--轮播-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"/><!--alert弹窗-->
+</head>
+<body>
+ <div class="container-fluid padding-b-10"> 
+<div class="container-fluid-pastannounce">
+        <!--滑动组件-->
+		<!--顶部导航-->
+        <!--<div class="top_nav position-re row fz_16px">
+            往期揭晓
+            <a href="javascript:history.go(-1)">
+                <span class="left_img"></span>
+            </a>
+            <a href="index.html">
+                <span class="index_img"></span>
+            </a>
+        </div>-->
+       
+        <!--真正揭晓中-->
+        
+        
+            <div class="issue position-re row" id="new_lotteryList">
+              <!--<a href="" class="goods_iss">
+                <span class="padding-l-r-1">期号：100000003<span class="text-red" style="padding-left:5px;">正在揭晓中...</span></span> 
+                <span class="icon-angle-right position-ab icon-right padding-l-r-1"></span>
+              </a>-->
+            </div>
+         
+       
+	    <!--揭晓列表-->
+        <div class="issue_List row" id="beforePublishList">
+              <div class="loading"></div>
+              <!--<div class="issue_content">
+                  <a href="8_goods-ing%20-%20adving.html">
+                      <div class="issue_content_nav position-re padding-l-r-1">期号：100000003
+                          <span class="icon-angle-right position-ab icon-right padding-l-r-1"></span>
+                      </div>
+                  </a>
+                  <div class="issue_content_publish row margin-l-r-0">
+                       <div class="col-md-3 col-sm-3 col-xs-3 issue_content_publish_1 text-center">
+                           <a href="36-persona_ck.html">
+                              <img class="img_publish" src="images/tx.png">
+                           </a>
+                       </div>
+                       <div class="col-md-9 col-sm-9 col-xs-9">
+                           <h3 class="lg_22px fz_15px">Apple MacBook Pro 15.4英寸笔记本</h3>
+                           <a href="36-persona_ck.html">
+                              <p class="lg_22px">获奖者：<span class="text-skyblue">用户昵称七个字</span><span class="text-gray">（IP所在地址）</span></p>
+                           </a>
+                           <p class="lg_22px">用户ID：10086<span class="text-gray">（唯一不变标识）</span></p>
+                           <p class="lg_22px">获奖幸运码：<span class="text-red">10000003</span></p>
+                           <p class="lg_22px">本期参与：<span class="text-red">3</span>人次</p>
+                           <p class="lg_22px">揭晓时间：2015-12-09  21:23:00</p>
+                      </div>
+                 </div>
+              </div>-->
+          </div>
+              
+</div>
+        <!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+</div>
+<!--返回顶部-->
+<a href="javascript:;" class="return_top position-ab">
+    <span class=" icon-arrow-up"></span>
+</a>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script defer src="js/jquery.flexslider-min.js"></script><!--轮播-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/data_list/wei-before_publish.js"></script>
+<script src="js/sweetalert-dev.js"></script>
+<script>
+$(function(){
+	 
+	// $('#footer').load('footer.html');//加载底部区域
+	 /*出现回到顶部按钮*/
+	  $(".return_top").hide();
+	  $(window).scroll(function () {
+		  if ($(this).scrollTop() > 900) {
+			  $(".return_top").stop().show().animate({ bottom: '100px' }, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  
+		  }
+		  else {
+			  
+			  $(".return_top").stop().animate({ bottom: '-200px'}, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  }
+		  
+	  });
+	  //返回顶部
+	  $('.return_top').click(function () {
+		  $('body,html').animate({ scrollTop: 0 }, 500);
+		  $(".return_top").animate({ bottom: '-200px', opacity: '1' }, 500);
+		  return false;
+	  });
+	 
+})
+</script>
+</body>
+</html>

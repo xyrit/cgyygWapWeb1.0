@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>提现申请</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/user/business.css"/>
+</head>
+<body>
+<div class="container" > 
+	<div class="padd_auto">
+			<div class="zhuanz_main">
+				<div class="zhuanzhan_box">
+					<p>可提现佣金：<span class="red remain" style="font-size: 20px;">189</span>&nbsp;元<font style="color:#666">&nbsp;(满100可提现)</font></p>
+					<div class="form-group">
+					    <select class="form-control bank_name"> 
+					     
+					    </select>
+					  </div>
+						<input type="text" class="form-control yanzhenma_input" name='jiner' placeholder="请输入验证码" value=""/>
+						<button onclick="click_yanzm();" class="yanzhenma_button" type="button">发送验证码</button>
+					</p>
+					<p id="tishi_font" class="hide" style="color:#666;margin:0;padding:0px;">已发送至绑定手机：<font class="usermobile"></font></p>
+				
+					<p><input id="userremain" type="text" class="form-control" name='jiner' placeholder="提现金额必须为整数" value=""/></p>
+				</div>
+				<br/>
+				<a class="cgButton" href="javascript:tijian();">确定提现</a>
+			</div>
+	</div>
+			
+			
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/weixin_inc.js"></script><!--获取微信资料-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息未登陆-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script>
+var glo_remain;//用户余额全局变量
+//把手机号码加密
+var reg = /^(\d{3})\d{4}(\d{4})$/;
+tel = mobile.replace(reg, "$1****$2");
+$('.usermobile').text(tel);
+//请求用户余额	
+function userremain(){
+	$.ajax({
+		type:"post",
+		url:urlPost+"/Commission/countcommission",
+		data:{
+			user_token:user
+		},
+		dataType:'json',
+		success:function(data){
+			var remain 		  = data['list']['remain'];//可用佣金
+			glo_remain=remain;//把金额赋值给全局变量
+			$('.remain').text(remain);
+		},
+	});
+}
+userremain();//调用函数
+	
+	//请求用户银行卡信息
+function payList(){
+	$.ajax({
+		type:"post",
+		url:urlPost+"/Commission/member_banks",
+		data:{
+			user_token:user
+		},
+		dataType:'json',
+		success:function(data){
+			var list = data['list'];
+			payNum=list.length;
+			if(payNum){
+				payMoren=3-payNum;
+			}else{
+				payMoren=3;
+			}
+			$('.payMoren').text(payMoren);
+			$('.payNum').text(payNum);
+			
+			var payList='';
+			$.each(list, function(k,v) {
+				var bank_name = list[k]['bank_name'];//银行名称
+				var bank_code = list[k]['bank_code'];//银行账户
+				var id 		  = list[k]['id'];//银行卡id
+				payList+='<option value='+id+'>'+bank_name+'-'+bank_code+'</option>';
+			});
+			$('.form-control').append(payList);
+		}
+	});
+}
+payList();//调用函数
+function SetRemainTime() {
+            if (curCount == 0) {                
+                window.clearInterval(InterValObj);
+                $(".yanzhenma_button").removeAttr("disabled");
+                $(".yanzhenma_button").text("重新发送");
+                $(".yanzhenma_button").css({'background':'#ff4800'});
+            }
+            else {
+                curCount--;
+                $(".yanzhenma_button").css({'background':'#A0A0A0'});
+                $(".yanzhenma_button").text(curCount + "秒内重发");
+                
+            }
+        }
+var InterValObj;//timer变量，控制时间
+var count = 120; //间隔函数，1秒执行
+var curCount;//当前剩余秒数        
+//发送验证码
+function click_yanzm(){
+	$.ajax({
+		type:'post',
+		url:urlPost+'/Verify/getVerify',
+		data:{
+			user_token:user,
+			cellphone:mobile,
+			type:7
+		},
+		dataType:'json',
+		success:function(data){
+			data=200;
+			if(data['code']!=200){
+				tanchuan_0(data['info'],'error','确定');
+				return false;
+			}else{
+				$('#tishi_font').show();
+				 curCount = count;
+			     $(".yanzhenma_button").attr("disabled", "true");
+			     $(".yanzhenma_button").text(curCount + "秒内重发");
+			     InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+			}
+		}
+
+	});
+}
+
+
+
+
+
+//确认提现
+function tijian(){
+	var yanzhenma_input = $('.yanzhenma_input').val();
+	var remain = $('#userremain').val();//提现金额
+	var bank_id = $('.bank_name').find("option:selected").val();//银行卡id
+	if(yanzhenma_input == ''){
+		tanchuan_0('验证码不能为空','error','确定');
+		return;
+	}
+	if(remain==''){
+		tanchuan_0('提现金额不能为空','error','确定');
+		return;
+	}
+	if(parseInt(remain) > parseInt(glo_remain)){
+		tanchuan_0('提现金额不能大于可提现金额','error','确定');
+		return;
+	}
+
+	$.ajax({
+		type:"post",
+		url:urlPost+"/Commission/transfer_accounts",
+		data:{
+			user_token:user,
+			consumption_money:remain,
+			bank_id:bank_id,
+			code:yanzhenma_input
+		},
+		dataType:'json',
+		success:function(data){
+			if(data['code']==200){
+				tanchuan_0('申请成功','error','确定');
+			}else{
+				tanchuan_0(data['info'],'error','确定');
+			}
+		}
+	})
+}
+</script>
+</body>
+</html>

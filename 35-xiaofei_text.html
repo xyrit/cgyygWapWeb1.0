@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>消费明细</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/user/business.css"/>
+</head>
+<body>
+<div class="container" > 
+	  <div class="xiaofei_text">
+		<div class="xiaofei_title">
+			<span class="left">消费金额</span>
+			<span style="font-weight: bold;" class="right red money"></span>
+		</div>
+
+		<div class="xiaofei_centend">
+			<p>
+				<span class="left">类型</span>
+				<span class="right bank_id"></span>
+			</p>
+			<p>
+				<span class="left">消费状况</span>
+				<span class="right status"></span>
+			</p>
+			<p>
+				<span class="left">剩余可用佣金</span>
+				<span class="right remain_money"></span>
+			</p>
+			<p>
+				<span class="left">消费时间</span>
+				<span class="right addtime"></span>
+			</p>
+			<p>
+				<span class="left">流水号</span>
+				<span class="right seriall_number"></span>
+			</p>
+		</div>
+		</div>	
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/weixin_inc.js"></script><!--获取微信资料-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息未登陆-->
+<script src="js/jquery.easing.js"></script>
+<script src="js/public/date-transite.js"></script>
+<script>
+var id = GetQueryString('id');
+function xiaofeitext(id){
+	$.ajax({
+		type:"post",
+		url:urlPost+"/Commission/wapconsumptionsInfo",
+		data:{
+			user_token:user,
+			id:id
+		},
+		dataType:'json',
+		success:function(data){
+			if(data['code']==200){
+				var info = data['info'];//明细
+				var status = info['consumption_status'];//状态
+				var money = info['consumption_money'];//消费金额
+				var addtime = info['addtime'];//消费时间
+				var seriall_number = info['seriall_number'];//编号
+				var bank_id = info['bank_id'];//类型
+				var remain_money = info['remain_money'];//佣金
+
+				//类型判断
+				if(bank_id==0){
+						bank_id='提现银行卡';
+					}else{
+						bank_id='充值到账'
+					}
+				//到账情况转换	
+					if(status==0){
+						status='<font style="color:#d43700">未到账</font>';
+					}else if(status==1){
+						status='<font style="color:#009a0b">已到账</font>';
+					}else if(status==2){
+						status='<font style="color:#d43700">未通过</font>';
+					}
+				//时间格式化
+				var timestamp_3 = addtime;
+				var newDate_3 = new Date();
+				newDate_3.setTime(timestamp_3 * 1000);
+				var newLottery_time_3=newDate_3.format('yyyy-MM-dd hh:mm:ss');
+
+				$('span.remain_money').text(remain_money+'元');//佣金
+				$('.bank_id').text(bank_id);//类型
+				$('.seriall_number').text(seriall_number);//编号
+				$('.addtime').text(newLottery_time_3);//时间
+				$('.money').text(money+'元');//消费金额
+				$('.status').html(status);//状态
+			}else{
+				tanchuan_0(data['info'],'error','确定');
+			}
+		}
+	})
+}
+xiaofeitext(id);
+</script>
+</body>
+</html>

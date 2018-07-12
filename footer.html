@@ -1,0 +1,72 @@
+<!--底部菜单-->
+<div id="hader_box">
+	<div class="center_box">
+		<a href="index.html"><span class="shouye_img"></span><p>首页</p></a>
+		<a href="2_category.html"><span class="shopin_img"></span><p>所有商品</p></a>
+		<a href="16-find.html"><span class="faxian_img"></span><p>发现</p></a>
+		<a class="shopingbox" href="17-Shopping-Cart.html"><span class="gouwuche_img"><i id="gouwuche_numfont" class="shopinNum">0</i></span><p>购物车</p></a>
+		<a href="35-personal.html"><span class="wode_img"></span><p>我的</p></a>
+	</div>
+</div>
+<!--底部菜单结束-->	
+<script type="text/javascript">
+	var url  = window.location.href;
+	//首页 选中效果
+	if(url.indexOf('index')>-1) {
+		$('.shouye_img').addClass('shouye_hover');
+		$('.shouye_img').parent('a').css('color','#ff4800');
+	}
+	//商品 选中效果
+	if(url.indexOf('category')>-1) {
+		$('.shopin_img').addClass('shopin_hover');
+		$('.shopin_img').parent('a').css('color','#ff4800');
+	}
+	//发现 选中效果
+	if(url.indexOf('find')>-1) {
+		$('.faxian_img').addClass('faxian_hover');
+		$('.faxian_img').parent('a').css('color','#ff4800');
+	}
+	//购物车 选中效果
+	if(url.indexOf('Shopping')>-1) {
+		$('.gouwuche_img').addClass('gouwuche_hover');
+		$('.gouwuche_img').parent('a').css('color','#ff4800');
+	}
+	//我的 选中效果
+	if(url.indexOf('personal')>-1) {
+		$('.wode_img').addClass('wode_hover');
+		$('.wode_img').parent('a').css('color','#ff4800');
+	}
+	//发送ajax 请求购物车 数据
+function goodsList2(){
+	$.ajax({
+		type:"post",
+		url:urlPost+"/Shopcart/listNum",
+		data:{
+			user_token:user
+		},
+		dataType:"json",//指定json类型 
+		success:function(data){
+			//判断是不是首页 加载
+				if(url.indexOf('m')>-1) {
+					if(data['code']!=200){
+						return false;
+					}
+				}
+	//			if(data['code']==517){//请求失败不加载数据
+	//				tanchuan_1(data['info'],'error','确定','34-Land.html');
+	//				return false;
+	//			}
+				if(data['code']!=200){
+					tanchuan_0(data['info'],'error','确定');
+					return false;
+				}
+				var Num			= data['total'];//购物车数量
+				$('#gouwuche_numfont').text(Num);//显示购物车数量
+			}
+	});
+}
+if(user){
+	goodsList2();//请购物车数量
+}	
+
+</script>

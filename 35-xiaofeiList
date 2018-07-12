@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>消费明细</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"><!--弹窗-->
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/user/business.css"/>
+</head>
+<body>
+<div class="container" > 
+	
+	<div class="xiaofei_box">
+		<ul class="mingxiBox">
+
+		</ul>
+	</div>		
+
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script><!--公共文件-->
+<script src="js/sweetalert-dev.js"></script><!--弹窗-->
+<script src="js/public/weixin_inc.js"></script><!--获取微信资料-->
+<script src="js/user/user_token_inc.js"></script><!--获取用户信息未登陆-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/public/date-transite.js"></script>
+<script>
+var pageIndex = 0;//页码
+var pageSize  = 6;//显示6条
+
+function xiaofeiList(pageIndex,pageSize){
+	$.ajax({
+		type:"post",
+		url:urlPost+"/Commission/wapconsumptionsList",
+		data:{
+			user_token:user,
+			pageIndex:pageIndex,
+			pageSize:pageSize
+		},
+		dataType:'json',
+		success:function(data){
+			if(data['code']==200){
+				var list = data['list'];//消费明细数组
+				var listDiv='';
+				$.each(list,function(k,v) {
+					var id 		= list[k]['id'];//id
+					var bank_id = list[k]['bank_id'];//提现方式
+					var consumption_money = list[k]['consumption_money'];//金额
+					var consumption_status = list[k]['consumption_status'];//状态
+					var addtime = list[k]['addtime'];//时间
+					
+					var timestamp_3 = addtime;
+					var newDate_3 = new Date();
+					newDate_3.setTime(timestamp_3 * 1000);
+					var newLottery_time_3=newDate_3.format('yyyy-MM-dd hh:mm:ss');
+
+					if(bank_id==0){
+						bank_id='提现银行卡';
+					}else{
+						bank_id='充值到账'
+					}
+
+					if(consumption_status==0){
+						consumption_status='未到账';
+					}else if(consumption_status==1){
+						consumption_status='已到账';
+					}else if(consumption_status==2){
+						consumption_status='未通过';
+					}
+
+					listDiv+='<li>';
+					listDiv+='<a href="#">';
+					listDiv+='<div class="xiaofei_left">';
+					listDiv+='<p class="paystare">'+bank_id+'</p>';
+					listDiv+='<span class="riqifont">'+newLottery_time_3+'</span>';
+					listDiv+='</div>';
+					listDiv+='<div class="xiaofei_right">';
+					listDiv+='<div class="jiantou">';
+					listDiv+='<span class="icon-angle-right"></span>';
+					listDiv+='</div>';
+					listDiv+='<p class="red"><font class="red">2</font>元</p>';
+					listDiv+='<font>'+consumption_status+'</font>';
+					listDiv+='</div>';
+					listDiv+='</a>';
+					listDiv+='</li>';
+				});
+				$('.mingxiBox').append(listDiv);
+			}else{
+				tanchuan_0(data['info'],'error','确定');
+			}
+		}
+	})
+}
+xiaofeiList(pageIndex,pageSize);
+</script>
+</body>
+</html>

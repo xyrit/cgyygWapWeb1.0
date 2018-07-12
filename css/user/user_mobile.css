@@ -1,0 +1,142 @@
+/*
+*
+* 绑定新手机 新功能开发
+*/
+.cg_color{
+
+	color: #ff4800;
+}
+input{outline:none} 
+.container{
+	padding: 0;
+	margin: 0;
+}
+.container-fluid{
+	padding: 0;
+}
+.hade_box{
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	background: #ff4800;
+}
+.bang_mobileBox{
+	width: 100%;
+	background: #fafafa;
+	font-size: 12px;
+}
+.bang_mobileBox .user_imgtou{
+	width: 93%;
+	margin: 0px auto;
+	overflow: hidden;
+	padding: 20px 0px; 
+	border-bottom: 1px dashed #ccc;
+}
+.bang_mobileBox .user_imgtouleft{
+	float: left;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+}
+.bang_mobileBox .user_imgtouright{
+	width: 68%;
+	float: right;
+}
+.bang_mobileBox .user_imgtouright p{
+	width: 100%;
+	height: 36px;
+    line-height: 50px;
+	margin: 0;
+	padding: 0;
+	
+}
+.bang_mobileBox .user_imgtouleft img{
+	width: 100%;
+	border-radius: 50%;
+}
+.inputMobile{
+	width: 93%;
+	margin: 25px auto 0px;
+}
+.inputMobile input{
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	border: 1px solid #ccc;
+	border-radius:5px;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+.inputMobile .mobi_input{
+	text-indent: 55px;
+	display: block;
+}
+.inputMobile .mobi_inputpass{
+	text-indent: 55px;
+}
+.inputMobile .mobileinput_p{
+	position: relative;
+}
+.mobile_p{
+	position: absolute;
+	left: 0;
+	top:0;
+	width: 50px;
+	height: 45px;
+	background: #ccc url(../../images/mobile_inc.png)no-repeat center center;
+	background-size: 26px;
+    border-radius: 5px 0px 0px 5px;
+}
+.mobile_passwod{
+	position: absolute;
+	left: 0;
+	top:0;
+	width: 50px;
+	height: 45px;
+	background: #ccc url(../../images/passwod.png)no-repeat center center;
+	background-size: 20px;
+    border-radius: 5px 0px 0px 5px;
+}
+.mobile_error{
+	position: absolute;
+	right: 0px;
+	top:0;
+	width: 50px;
+	height: 45px;
+	background: url(../../images/error.png)no-repeat center center;
+	background-size: 23px;
+    border-radius: 0px 5px 5px 0px;
+    display: none;
+}
+.error_font{
+	color: red;
+	font-size: 12px;
+}
+.error_font2,.error_fontPass{
+	color: red;
+	font-size: 12px;
+}
+.mobile_pright{
+	position: absolute;
+	right: 0;
+	top:0;
+	width: 90px;
+	height: 45px;
+	background: #ccc;
+    border-radius: 0px 5px 5px 0px;
+    font-size: 13px;
+    color: #fff;
+}
+.yanzhanmainput,.inputPassword,.inputPasswordRe{
+	text-indent: 8px;
+}
+
+#bdmo_mobile:hover{
+	opacity: 0.9
+}
+.bang_passwodBox{
+	display: none;
+}

@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商品详情-晒单分享</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/><!--为了防止苹果手机自动把数字变成号码导致样式失效-->
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/flexslider.css"/><!--轮播-->
+<link rel="stylesheet" href="css/wap-common.css"/>
+<link rel="stylesheet" href="css/wapCg.css"/>
+<link rel="stylesheet" href="css/wapCg-part.css"/>
+<link rel="stylesheet" href="css/sweetalert.css"/><!--alert弹窗-->
+</head>
+<body>
+<div class="container-fluid padding-b-10"> 
+<div class="container-fluid-pastannounce">
+  	
+	    <!--晒单分享标题-->
+        <div class="share_det_title row">
+             <span class="padding-l-r-1">
+                  已有<span class="text-red" id="shareCount"></span>个幸运者晒单<!--，<span class="text-red">53</span>条评论！-->
+             </span>   
+        </div>
+        
+        <!--晒单分享内容-->
+         <div class="share_det_content">
+              <div id="pro-view-4">
+                 <ul class="share_det_list" id="dis_share_list">
+                    <div class="loading"></div>
+                    <!--<li>
+                       <div class="clearfix share-content">
+                            <div class="avatar">
+                              <a href="36-persona_ck.html">
+                                   <img width="35" height="35" src="images/tx.png" alt="">
+                              </a>
+                            </div>
+                            <div class="text position-re">
+                               <div style="margin-bottom:5px;" class="nickname">
+                                  <div class="det_sun_content">
+                                      <a href="10_sun_details.html">
+                                          <p class="fz_15px lg_22px">我晒的单，啦啦啦啦啦啦啦啦啦啦</p>
+                                      </a>
+                                      <a href="36-persona_ck.html">
+                                          <p class="text-skyblue lg_22px">用户昵称七个字&nbsp;&nbsp;</p>
+                                      </a>
+                                      <p class="lg_22px">2015-12-09  21:23:00</p>
+                                      <a href="10_sun_details.html">
+                                          <p class="lg_22px">
+                                                中奖啦！终于让我中奖啦！好开心！好开心！我爱橙
+                                                果一元购！对你爱爱爱不完！我还会再来的。中啦！
+                                                终于让我中奖啦！好开心！我爱橙果云购！对你爱
+                                                爱爱不完！我还会再来的。
+                                          </p>
+                                      </a>
+                                  </div>
+                                  
+                                  <div class="sun_share_det">
+                                     <a href="10_sun_details.html">
+                                        <img src="images/sun-1.jpg">
+                                        <img src="images/sun-1.jpg">
+                                      </a>
+                                  </div>
+                                  <div class="share_icon">
+                                      <a class="icon-heart inco1 fz_12px" href="#"><span style="padding-left:0.4em">577人羡慕嫉妒</span></a>
+                                      <a class="icon-comment inco2 fz_12px" href="#"><span style="padding-left:0.4em">29条评论</a>
+                                  </div>
+                               </div>
+                            </div>
+                       </div>
+                    </li>-->
+                    
+                 </ul>
+                 <a href="javascript:;" class="loadingMore fz_12px">点击加载更多</a>
+              </div>
+          </div>
+          
+
+
+      <!--底部菜单-->
+      	<div id="footer"></div>
+     	<!--底部菜单-->
+</div>
+</div>
+<!--返回顶部-->
+<a href="javascript:;" class="return_top position-ab">
+    <span class=" icon-arrow-up"></span>
+</a>
+<script src="js/jquery-1.11.3.min.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/public/comm_host.js"></script><!--全局地址文件-->
+<script src="js/public/comm_inc.js"></script>
+<script src="js/data_list/wei-dis_share.js"></script>
+<script src="js/sweetalert-dev.js"></script>
+<script>
+$(function(){
+	 //$('#footer').load('footer.html');//加载底部区域
+	 /*出现回到顶部按钮*/
+	  $(".return_top").hide();
+	  $(window).scroll(function () {
+		  if ($(this).scrollTop() > 900) {
+			  $(".return_top").stop().show().animate({ bottom: '100px' }, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  
+		  }
+		  else {
+			  
+			  $(".return_top").stop().animate({ bottom: '-200px'}, 300);
+			  $(".return_top").css({ position: "fixed"});
+		  }
+		  
+	  });
+	  //返回顶部
+	  $('.return_top').click(function () {
+		  $('body,html').animate({ scrollTop: 0 }, 500);
+		  $(".return_top").animate({ bottom: '-200px', opacity: '1' }, 500);
+		  return false;
+	  });
+})
+</script>
+</body>
+</html>
